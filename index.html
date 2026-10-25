@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>DILP — Digital Innovation &amp; Leadership Programme | Cedars Productivity Centre</title>
-<meta name="description" content="DILP is a 14-week practical training, mentorship and capstone programme in Bonny Island, delivered by Cedars Productivity Centre. Cohort 2 applications are open — no cost to selected participants.">
+<meta name="description" content="DILP is a 12-week practical training, mentorship and capstone programme in Bonny Island, delivered by Cedars Productivity Centre. Applications for Cohort 2 are closed. No cost to selected participants.">
 <meta name="theme-color" content="#0040a1">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="DILP — Developing digital skills, building responsible leaders">
-<meta property="og:description" content="Fourteen weeks of practical training, mentorship and a capstone project. Cohort 2 applications are open.">
+<meta property="og:description" content="Twelve weeks of practical training, mentorship and a capstone project. Applications for Cohort 2 are closed.">
 <meta property="og:image" content="assets/img/hero-media.webp">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,11 +27,11 @@
 <div class="ticker" aria-label="Programme announcements">
   <div class="marquee" style="--marquee-duration: 42s" data-marquee>
     <div class="marquee__track" data-marquee-track>
-      <p class="ticker__item">COHORT 2 APPLICATIONS ARE OPEN <img class="ticker__dot" src="assets/svg/ticker-dot.svg" alt="" aria-hidden="true"></p>
+      <p class="ticker__item">APPLICATIONS ARE CURRENTLY CLOSED <img class="ticker__dot" src="assets/svg/ticker-dot.svg" alt="" aria-hidden="true"></p>
       <p class="ticker__item">12 WEEKS · BONNY ISLAND <img class="ticker__dot" src="assets/svg/ticker-dot.svg" alt="" aria-hidden="true"></p>
       <p class="ticker__item">NO COST TO SELECTED PARTICIPANTS <img class="ticker__dot" src="assets/svg/ticker-dot.svg" alt="" aria-hidden="true"></p>
       <p class="ticker__item">MENTOR-LED · PROJECT-BASED <img class="ticker__dot" src="assets/svg/ticker-dot.svg" alt="" aria-hidden="true"></p>
-      <p class="ticker__item">FIVE TRACKS TO CHOOSE FROM <img class="ticker__dot" src="assets/svg/ticker-dot.svg" alt="" aria-hidden="true"></p>
+      <p class="ticker__item">SEVEN TRACKS TO CHOOSE FROM <img class="ticker__dot" src="assets/svg/ticker-dot.svg" alt="" aria-hidden="true"></p>
       <p class="ticker__item">DELIVERED BY CEDARS PRODUCTIVITY CENTRE <img class="ticker__dot" src="assets/svg/ticker-dot.svg" alt="" aria-hidden="true"></p>
     </div>
   </div>
@@ -42,52 +42,72 @@
      ===================================================================== -->
 <header class="header" data-header>
   <div class="shell header__inner">
-    <a class="logo" href="#top" aria-label="DILP by Cedars — home">
+    <a class="logo" href="index.html" aria-label="DILP — home">
       <span class="logo__plate">
         <img class="logo__img" src="assets/img/dilp-logo.png" width="186" height="68" alt="DILP">
         <span class="logo__word" aria-hidden="true">DILP</span>
       </span>
-      <span class="logo__badge">by Cedars</span>
     </a>
 
     <nav class="nav" aria-label="Primary">
-      <a class="nav__link" href="#top" aria-current="page">Home</a>
+      <a class="nav__link" href="index.html" aria-current="page">Home</a>
       <div class="nav__group" data-dropdown data-open="false">
         <button class="nav__link" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="programmes-menu" data-dropdown-toggle>
           Programmes
           <img class="nav__chevron" src="assets/svg/nav-chevron.svg" alt="" aria-hidden="true">
         </button>
         <div class="dropdown" id="programmes-menu" role="menu">
-          <span class="dropdown__label">FIVE TRACKS</span>
-          <a role="menuitem" href="#tracks">Cybersecurity &amp; Digital Safety <span>12 weeks</span></a>
-          <a role="menuitem" href="#tracks">Front-End Development <span>14 weeks</span></a>
-          <a role="menuitem" href="#tracks">Back-End Development <span>12 weeks</span></a>
-          <a role="menuitem" href="#tracks">Product Design <span>14 weeks</span></a>
-          <a role="menuitem" href="#tracks">Data Analytics <span>12 weeks</span></a>
+          <span class="dropdown__label">SEVEN TRACKS</span>
+          <a role="menuitem" href="tracks/cybersecurity.html">Cybersecurity &amp; Digital Safety</a>
+          <a role="menuitem" href="tracks/front-end-development.html">Front-End Development</a>
+          <a role="menuitem" href="tracks/back-end-development.html">Back-End Development</a>
+          <a role="menuitem" href="tracks/product-design.html">Product Design</a>
+          <a role="menuitem" href="tracks/graphic-design.html">Graphic Design</a>
+          <a role="menuitem" href="tracks/ai-and-automation.html">AI &amp; Automation</a>
+          <a role="menuitem" href="tracks/data-analytics.html">Data Analytics</a>
         </div>
       </div>
-      <a class="nav__link" href="#partner">Get Involved</a>
+      <a class="nav__link" href="articles/index.html">Leadership</a>
+      <a class="nav__link" href="get-involved.html">Get Involved</a>
     </nav>
 
     <div class="header__actions">
-      <a class="btn btn--blue btn--nav" href="#apply">Apply Now</a>
+      <a class="btn btn--blue btn--nav" href="get-involved.html">Get involved</a>
       <button class="burger" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu" data-burger>
         <span></span>
       </button>
     </div>
   </div>
 
+  <!-- Mobile menu mirrors the desktop nav exactly: the same four
+       destinations, with Programmes expanding to the track list. -->
   <div class="mobile-nav" id="mobile-nav" data-open="false">
     <div class="shell">
-      <ul>
-        <li><a href="#top">Home</a></li>
-        <li><a href="#tracks">Programmes</a></li>
-        <li><a href="#leave-with">What you leave with</a></li>
-        <li><a href="#impact">Impact</a></li>
-        <li><a href="#partner">Get Involved</a></li>
-        <li><a href="#faq">FAQs</a></li>
+      <ul data-accordion>
+        <li><a href="index.html">Home</a></li>
+        <li class="mobile-nav__group" data-open="false">
+          <button class="mobile-nav__toggle" type="button" aria-expanded="false" aria-controls="mobile-programmes" data-accordion-toggle>
+            Programmes
+            <span class="accordion__sign" aria-hidden="true">+</span>
+          </button>
+          <div class="accordion__panel" id="mobile-programmes" role="region" aria-label="Tracks">
+            <div>
+              <ul class="mobile-nav__sub">
+                <li><a href="tracks/cybersecurity.html">Cybersecurity &amp; Digital Safety</a></li>
+            <li><a href="tracks/front-end-development.html">Front-End Development</a></li>
+            <li><a href="tracks/back-end-development.html">Back-End Development</a></li>
+            <li><a href="tracks/product-design.html">Product Design</a></li>
+            <li><a href="tracks/graphic-design.html">Graphic Design</a></li>
+            <li><a href="tracks/ai-and-automation.html">AI &amp; Automation</a></li>
+            <li><a href="tracks/data-analytics.html">Data Analytics</a></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li><a href="articles/index.html">Leadership</a></li>
+        <li><a href="get-involved.html">Get Involved</a></li>
       </ul>
-      <a class="btn btn--blue btn--lg" href="#apply">Apply for Cohort 2</a>
+      <a class="btn btn--blue btn--lg" href="get-involved.html">Get involved</a>
     </div>
   </div>
 </header>
@@ -108,11 +128,11 @@
             <span class="hero__mark">leaders</span>
           </span>
         </h1>
-        <p class="hero__sub">Fourteen weeks of practical training, mentorship and a capstone project — so you finish with a skill you can use and work you can show.</p>
+        <p class="hero__sub">Twelve weeks of practical training, mentorship and a capstone project, so you finish with a skill you can use and work you can show.</p>
 
         <div class="hero__ctas">
-          <a class="btn btn--blue btn--lg" href="#apply">Apply for Cohort 2</a>
-          <a class="btn btn--outline btn--lg" href="#tracks">Compare the 5 tracks</a>
+          <a class="btn btn--blue btn--lg" href="#tracks">Explore the seven tracks</a>
+          <a class="btn btn--outline btn--lg" href="#tracks">Compare the 7 tracks</a>
         </div>
 
         <div class="proof">
@@ -123,7 +143,7 @@
             <img src="assets/img/hero-avatar-4.webp" width="38" height="38" alt="" loading="lazy">
           </div>
           <p class="proof__text">
-            <strong>200+ young people enrolled</strong>
+            <strong>200+ individuals enrolled</strong>
             <span>across Cohort 1 and Cohort 2</span>
           </p>
         </div>
@@ -140,6 +160,9 @@
        =================================================================== -->
   <section class="section--white promo">
     <div class="shell promo__inner">
+      <!-- The Figma promo cluster is now a single full-width card; the quiz
+           and "Delivered by" cards were dropped from the design. Kept here,
+           commented out, in case you want them back.
       <div class="promo__side">
         <div class="card-quiz reveal">
           <h3>Not sure which track fits you?</h3>
@@ -155,14 +178,15 @@
           </div>
         </div>
       </div>
+      -->
 
       <div class="card-urgency reveal">
         <div class="card-urgency__copy">
           <div class="card-urgency__top">
-            <span class="chip-urgency">APPLICATIONS OPEN</span>
+            <span class="chip-urgency chip-urgency--closed">APPLICATIONS CLOSED</span>
             <h2>Pick the track that matches the work you want to do.</h2>
           </div>
-          <a class="btn btn--yellow btn--lg" href="#apply" style="align-self:flex-start">Apply for Cohort 2</a>
+          <a class="btn btn--yellow btn--lg" href="#tracks" style="align-self:flex-start">See the tracks</a>
         </div>
         <div class="card-urgency__media">
           <img src="assets/img/promo-goodgods.webp" alt="DILP participants listening during a session." loading="lazy">
@@ -181,6 +205,8 @@
         <p class="track-marquee__item"><img class="track-marquee__sep" src="assets/svg/marquee-sep.svg" alt="" aria-hidden="true"> Front-End Development</p>
         <p class="track-marquee__item"><img class="track-marquee__sep" src="assets/svg/marquee-sep.svg" alt="" aria-hidden="true"> Back-End Development</p>
         <p class="track-marquee__item"><img class="track-marquee__sep" src="assets/svg/marquee-sep.svg" alt="" aria-hidden="true"> Product Design</p>
+        <p class="track-marquee__item"><img class="track-marquee__sep" src="assets/svg/marquee-sep.svg" alt="" aria-hidden="true"> Graphic Design</p>
+        <p class="track-marquee__item"><img class="track-marquee__sep" src="assets/svg/marquee-sep.svg" alt="" aria-hidden="true"> AI &amp; Automation</p>
         <p class="track-marquee__item"><img class="track-marquee__sep" src="assets/svg/marquee-sep.svg" alt="" aria-hidden="true"> Data Analytics</p>
         <p class="track-marquee__item"><img class="track-marquee__sep" src="assets/svg/marquee-sep.svg" alt="" aria-hidden="true"> Capstone Project</p>
       </div>
@@ -203,7 +229,7 @@
         <div class="track-featured__body">
           <div class="track-featured__top">
             <span class="chip-soft">MOST APPLIED-TO TRACK</span>
-            <h3>Cybersecurity &amp; Digital Safety</h3>
+            <h3><a class="card-link" href="tracks/cybersecurity.html">Cybersecurity &amp; Digital Safety</a></h3>
             <p>Learn how attacks actually happen, then practise defending against them in supervised lab work. You finish by securing a system for a real community organisation.</p>
           </div>
           <div class="track-featured__bottom">
@@ -213,8 +239,8 @@
               <span class="meta-pill__item"><span class="ico ico--20"><img src="assets/svg/icon-location-lg.svg" alt="" aria-hidden="true"></span><span>Onsite (Bonny Island)</span></span>
             </div>
             <div class="track-featured__actions">
-              <a class="link-strong" href="#faq">See what you&rsquo;ll learn</a>
-              <a class="btn btn--blue btn--sm" href="#apply">Apply now <span class="ico ico--16 arrow"><img src="assets/svg/icon-arrow-right.svg" alt="" aria-hidden="true"></span></a>
+              <a class="link-strong" href="tracks/cybersecurity.html">See what you&rsquo;ll learn</a>
+              <a class="btn btn--blue btn--sm" href="tracks/cybersecurity.html">See the track <span class="ico ico--16 arrow"><img src="assets/svg/icon-arrow-right.svg" alt="" aria-hidden="true"></span></a>
             </div>
           </div>
         </div>
@@ -227,7 +253,7 @@
           </div>
           <div class="track-card__body">
             <span class="tag tag--data">DATA TRACK</span>
-            <h3>Data Analytics</h3>
+            <h3><a class="card-link" href="tracks/data-analytics.html">Data Analytics</a></h3>
             <p>Turn messy data into answers a decision-maker can act on.</p>
             <div class="track-card__footer">
               <div class="meta-pill meta-pill--tight">
@@ -235,7 +261,7 @@
                 <span class="meta-pill__rule"></span>
                 <span class="meta-pill__item"><span class="ico ico--20"><img src="assets/svg/icon-location.svg" alt="" aria-hidden="true"></span><span>Onsite (Bonny Island)</span></span>
               </div>
-              <a class="btn btn--blue btn--xs" href="#apply">Apply now <span class="ico ico--16 arrow"><img src="assets/svg/icon-arrow-right.svg" alt="" aria-hidden="true"></span></a>
+              <a class="btn btn--blue btn--xs" href="tracks/data-analytics.html">See the track <span class="ico ico--16 arrow"><img src="assets/svg/icon-arrow-right.svg" alt="" aria-hidden="true"></span></a>
             </div>
           </div>
         </article>
@@ -246,7 +272,7 @@
           </div>
           <div class="track-card__body">
             <span class="tag tag--core-green">CORE TRACK</span>
-            <h3>Back-End Development</h3>
+            <h3><a class="card-link" href="tracks/back-end-development.html">Back-End Development</a></h3>
             <p>Build the logic, data and APIs that keep an application running.</p>
             <div class="track-card__footer">
               <div class="meta-pill meta-pill--tight">
@@ -254,7 +280,7 @@
                 <span class="meta-pill__rule"></span>
                 <span class="meta-pill__item"><span class="ico ico--20"><img src="assets/svg/icon-location.svg" alt="" aria-hidden="true"></span><span>Onsite (Bonny Island)</span></span>
               </div>
-              <a class="btn btn--blue btn--xs" href="#apply">Apply now <span class="ico ico--16 arrow"><img src="assets/svg/icon-arrow-right.svg" alt="" aria-hidden="true"></span></a>
+              <a class="btn btn--blue btn--xs" href="tracks/back-end-development.html">See the track <span class="ico ico--16 arrow"><img src="assets/svg/icon-arrow-right.svg" alt="" aria-hidden="true"></span></a>
             </div>
           </div>
         </article>
@@ -265,15 +291,15 @@
           </div>
           <div class="track-card__body">
             <span class="tag tag--design">DESIGN TRACK</span>
-            <h3>Product Design</h3>
+            <h3><a class="card-link" href="tracks/product-design.html">Product Design</a></h3>
             <p>Research a real problem, then design the solution end to end.</p>
             <div class="track-card__footer">
               <div class="meta-pill meta-pill--tight">
-                <span class="meta-pill__item"><span class="ico ico--20"><img src="assets/svg/icon-clock.svg" alt="" aria-hidden="true"></span><span>14 weeks</span></span>
+                <span class="meta-pill__item"><span class="ico ico--20"><img src="assets/svg/icon-clock.svg" alt="" aria-hidden="true"></span><span>12 weeks</span></span>
                 <span class="meta-pill__rule"></span>
                 <span class="meta-pill__item"><span class="ico ico--20"><img src="assets/svg/icon-location.svg" alt="" aria-hidden="true"></span><span>Onsite (Bonny Island)</span></span>
               </div>
-              <a class="btn btn--blue btn--xs" href="#apply">Apply now <span class="ico ico--16 arrow"><img src="assets/svg/icon-arrow-right.svg" alt="" aria-hidden="true"></span></a>
+              <a class="btn btn--blue btn--xs" href="tracks/product-design.html">See the track <span class="ico ico--16 arrow"><img src="assets/svg/icon-arrow-right.svg" alt="" aria-hidden="true"></span></a>
             </div>
           </div>
         </article>
@@ -284,21 +310,59 @@
           </div>
           <div class="track-card__body">
             <span class="tag tag--core-blue">CORE TRACK</span>
-            <h3>Front-End Development</h3>
+            <h3><a class="card-link" href="tracks/front-end-development.html">Front-End Development</a></h3>
             <p>Build the screens people actually use — responsive, accessible and fast.</p>
             <div class="track-card__footer">
               <div class="meta-pill meta-pill--tight">
-                <span class="meta-pill__item"><span class="ico ico--20"><img src="assets/svg/icon-clock.svg" alt="" aria-hidden="true"></span><span>14 weeks</span></span>
+                <span class="meta-pill__item"><span class="ico ico--20"><img src="assets/svg/icon-clock.svg" alt="" aria-hidden="true"></span><span>12 weeks</span></span>
                 <span class="meta-pill__rule"></span>
                 <span class="meta-pill__item"><span class="ico ico--20"><img src="assets/svg/icon-location.svg" alt="" aria-hidden="true"></span><span>Onsite (Bonny Island)</span></span>
               </div>
-              <a class="btn btn--blue btn--xs" href="#apply">Apply now <span class="ico ico--16 arrow"><img src="assets/svg/icon-arrow-right.svg" alt="" aria-hidden="true"></span></a>
+              <a class="btn btn--blue btn--xs" href="tracks/front-end-development.html">See the track <span class="ico ico--16 arrow"><img src="assets/svg/icon-arrow-right.svg" alt="" aria-hidden="true"></span></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="track-card reveal">
+          <div class="track-card__media track-card__media--graphic">
+            <img src="assets/img/gallery-6.webp" alt="A DILP participant setting up a presentation in the training room." loading="lazy">
+          </div>
+          <div class="track-card__body">
+            <span class="tag tag--design">DESIGN TRACK</span>
+            <h3><a class="card-link" href="tracks/graphic-design.html">Graphic Design</a></h3>
+            <p>Make the identity, layouts and campaign work an organisation runs on.</p>
+            <div class="track-card__footer">
+              <div class="meta-pill meta-pill--tight">
+                <span class="meta-pill__item"><span class="ico ico--20"><img src="assets/svg/icon-clock.svg" alt="" aria-hidden="true"></span><span>12 weeks</span></span>
+                <span class="meta-pill__rule"></span>
+                <span class="meta-pill__item"><span class="ico ico--20"><img src="assets/svg/icon-location.svg" alt="" aria-hidden="true"></span><span>Onsite (Bonny Island)</span></span>
+              </div>
+              <a class="btn btn--blue btn--xs" href="tracks/graphic-design.html">See the track <span class="ico ico--16 arrow"><img src="assets/svg/icon-arrow-right.svg" alt="" aria-hidden="true"></span></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="track-card reveal">
+          <div class="track-card__media track-card__media--ai">
+            <img src="assets/img/gallery-1.webp" alt="A speaker presenting at a DILP session." loading="lazy">
+          </div>
+          <div class="track-card__body">
+            <span class="tag tag--data">DATA TRACK</span>
+            <h3><a class="card-link" href="tracks/ai-and-automation.html">AI &amp; Automation</a></h3>
+            <p>Put AI to work on real tasks, and automate the ones done by hand.</p>
+            <div class="track-card__footer">
+              <div class="meta-pill meta-pill--tight">
+                <span class="meta-pill__item"><span class="ico ico--20"><img src="assets/svg/icon-clock.svg" alt="" aria-hidden="true"></span><span>12 weeks</span></span>
+                <span class="meta-pill__rule"></span>
+                <span class="meta-pill__item"><span class="ico ico--20"><img src="assets/svg/icon-location.svg" alt="" aria-hidden="true"></span><span>Onsite (Bonny Island)</span></span>
+              </div>
+              <a class="btn btn--blue btn--xs" href="tracks/ai-and-automation.html">See the track <span class="ico ico--16 arrow"><img src="assets/svg/icon-arrow-right.svg" alt="" aria-hidden="true"></span></a>
             </div>
           </div>
         </article>
       </div>
 
-      <a class="btn btn--dark btn--md reveal" href="#apply">View all five tracks</a>
+      <a class="btn btn--dark btn--md reveal" href="#apply">View all seven tracks</a>
     </div>
   </section>
 
@@ -367,7 +431,7 @@
 
         <article class="develop-card dc--6 reveal">
           <h3>Practical Application</h3>
-          <p>By week fourteen you&rsquo;ve built something an organisation asked for. That&rsquo;s the part people ask you about later.</p>
+          <p>By week twelve you&rsquo;ve built something an organisation asked for. That&rsquo;s the part people ask you about later.</p>
           <div class="develop-card__art" aria-hidden="true">
             <img class="s1" src="assets/svg/dev-06-a.svg" alt="">
             <img class="s2" src="assets/svg/dev-06-b.svg" alt="">
@@ -430,7 +494,7 @@
             </div>
           </div>
 
-          <a class="btn btn--blue btn--md reveal" href="#apply">Apply for Cohort 2</a>
+          <a class="btn btn--blue btn--md reveal" href="get-involved.html">Get involved</a>
         </div>
 
         <div class="why__media reveal">
@@ -459,7 +523,7 @@
       </div>
 
       <div class="evidence__right">
-        <h2 class="heading2 heading2--stack reveal">
+        <h2 class="heading2 heading2--center reveal">
           <span>What Cohort One</span>
           <span class="accent">actually produced</span>
         </h2>
@@ -480,10 +544,6 @@
           <div class="stat stat--blue reveal">
             <span class="stat__num" data-count-to="27">27</span>
             <span class="stat__label">CAPSTONE PROJECTS</span>
-          </div>
-          <div class="stat stat--yellow stat--wide reveal">
-            <span class="stat__num" data-count-to="32">32</span>
-            <span class="stat__label">GRADUATED</span>
           </div>
         </div>
       </div>
@@ -543,15 +603,15 @@
     <div class="shell opportunity__inner">
       <div class="opportunity__card reveal">
         <div class="opportunity__headline">
-          <span class="chip-live"><img src="assets/svg/status-dot.svg" alt="" aria-hidden="true">APPLICATIONS OPEN</span>
+          <span class="chip-closed">APPLICATIONS CLOSED</span>
           <h2>DILP Cohort 2</h2>
-          <p>Now accepting applications</p>
+          <p>Applications for this cohort are closed</p>
         </div>
 
         <div class="facts">
           <div class="fact fact--blue">
             <span class="ico ico--28"><img src="assets/svg/icon-calendar.svg" alt="" aria-hidden="true"></span>
-            <div><small>PROGRAMME LENGTH</small><strong>14 weeks</strong></div>
+            <div><small>PROGRAMME LENGTH</small><strong>12 weeks</strong></div>
           </div>
           <div class="fact fact--peach">
             <span class="ico ico--28"><img src="assets/svg/icon-location-28.svg" alt="" aria-hidden="true"></span>
@@ -563,7 +623,7 @@
           </div>
         </div>
 
-        <a class="btn btn--blue" style="padding:16px 26px;font-size:13px" href="mailto:hello@cedarsprohub.com?subject=DILP%20Cohort%202%20application">Apply for Cohort 2</a>
+        <a class="btn btn--blue" style="padding:16px 26px;font-size:13px" href="get-involved.html">Get involved</a>
       </div>
     </div>
   </section>
@@ -631,7 +691,7 @@
           </h2>
           <p>Partners widen access, deepen the work and connect participants to real opportunities. Here is where support goes.</p>
         </div>
-        <a class="btn btn--black btn--lg reveal" href="mailto:hello@cedarsprohub.com?subject=Partnering%20with%20DILP">Talk to us about partnering &nbsp;&rarr;</a>
+        <a class="btn btn--black btn--lg reveal" href="get-involved.html">Talk to us about partnering &nbsp;&rarr;</a>
       </div>
 
       <div class="pillars">
@@ -674,7 +734,7 @@
               <span class="accordion__sign" aria-hidden="true">&ndash;</span>
             </button>
             <div class="accordion__panel" id="faq-panel-1" role="region">
-              <div><p>Yes. DILP is open to young people who can commit to 14 weeks of practical learning in Bonny Island. No prior tech experience is required — applications are assessed on motivation, availability and readiness to work on a real community project.</p></div>
+              <div><p>Yes. DILP is open to young people who can commit to 12 weeks of practical learning in Bonny Island. No prior tech experience is required — applications are assessed on motivation, availability and readiness to work on a real community project.</p></div>
             </div>
           </div>
 
@@ -694,7 +754,7 @@
               <span class="accordion__sign" aria-hidden="true">+</span>
             </button>
             <div class="accordion__panel" id="faq-panel-3" role="region">
-              <div><p>Pick the track that matches the work you want to do: Cybersecurity &amp; Digital Safety, Front-End Development, Back-End Development, Product Design or Data Analytics. If you are still deciding, take the two-minute track quiz and we will point you at the closest fit.</p></div>
+              <div><p>Pick the track that matches the work you want to do: Cybersecurity &amp; Digital Safety, Front-End Development, Back-End Development, Product Design, Graphic Design, AI &amp; Automation or Data Analytics. Every track runs the same twelve weeks and ends in a capstone, so the question is which kind of work you want to be doing, not which is shortest.</p></div>
             </div>
           </div>
 
@@ -704,7 +764,7 @@
               <span class="accordion__sign" aria-hidden="true">+</span>
             </button>
             <div class="accordion__panel" id="faq-panel-4" role="region">
-              <div><p>Sessions run onsite in Bonny Island across the 14 weeks, with supervised practice between them. Expect a consistent weekly commitment — the exact timetable is confirmed with each cohort before it starts.</p></div>
+              <div><p>Sessions run onsite in Bonny Island across the 12 weeks, with supervised practice between them. Expect a consistent weekly commitment — the exact timetable is confirmed with each cohort before it starts.</p></div>
             </div>
           </div>
 
@@ -764,26 +824,26 @@
        =================================================================== -->
   <section class="final">
     <div class="shell final__inner">
-      <span class="final__pill reveal">COHORT 2 · APPLICATIONS OPEN</span>
+      <span class="final__pill reveal">COHORT 2 · APPLICATIONS CLOSED</span>
 
       <h2 class="final__headline reveal">
         <span class="accent">Twelve weeks from now,</span>
         <span>you could have shipped something.</span>
       </h2>
 
-      <p class="final__sub reveal">Applications for Cohort 2 are open to young people in Bonny Island. No cost to selected participants.</p>
+      <p class="final__sub reveal">Applications for Cohort 2 are closed. You can still help the next cohort happen — partner with the programme or support a place.</p>
 
       <div class="final__ctas reveal">
-        <a class="btn btn--yellow btn--pill-12" href="mailto:hello@cedarsprohub.com?subject=DILP%20Cohort%202%20application">Apply for cohort 2</a>
-        <a class="btn btn--ghost-blue" style="padding:16px 26px;font-size:13px" href="mailto:hello@cedarsprohub.com?subject=Partnering%20with%20DILP">Partner with DILP</a>
-        <a class="btn btn--ghost-blue" style="padding:16px 26px;font-size:13px" href="mailto:hello@cedarsprohub.com?subject=Supporting%20DILP">Support the programme</a>
+        <a class="btn btn--yellow btn--pill-12" href="get-involved.html">Get involved</a>
+        <a class="btn btn--ghost-blue" style="padding:16px 26px;font-size:13px" href="mailto:partnerships@cedarsprohub.com?subject=Partnering%20with%20DILP">Partner with DILP</a>
+        <a class="btn btn--ghost-blue" style="padding:16px 26px;font-size:13px" href="mailto:partnerships@cedarsprohub.com?subject=Supporting%20DILP">Support the programme</a>
       </div>
 
       <div class="final__avatars reveal">
-        <img src="assets/img/cta-avatar-1.webp" width="52" height="52" alt="" loading="lazy">
-        <img src="assets/img/cta-avatar-2.webp" width="52" height="52" alt="" loading="lazy">
-        <img src="assets/img/cta-avatar-3.webp" width="52" height="52" alt="" loading="lazy">
-        <img src="assets/img/cta-avatar-4.webp" width="52" height="52" alt="" loading="lazy">
+        <img src="assets/img/cohort-avatar-1.webp" width="52" height="52" alt="" loading="lazy">
+        <img src="assets/img/cohort-avatar-2.webp" width="52" height="52" alt="" loading="lazy">
+        <img src="assets/img/cohort-avatar-3.webp" width="52" height="52" alt="" loading="lazy">
+        <img src="assets/img/cohort-avatar-4.webp" width="52" height="52" alt="" loading="lazy">
         <span class="final__count">200+</span>
       </div>
     </div>
@@ -802,26 +862,27 @@
             <img class="logo__img" src="assets/img/dilp-logo.png" width="186" height="68" alt="DILP">
             <span class="logo__word" aria-hidden="true">DILP</span>
           </span>
-          <span class="logo__badge">by Cedars</span>
         </div>
         <p>A community-focused talent development programme by Cedars Productivity Centre.</p>
       </div>
 
       <nav class="footer__col" aria-label="Explore">
         <span class="footer__label">EXPLORE</span>
-        <a href="#why">About Cedars</a>
-        <a href="#impact">Our Work</a>
-        <a href="#tracks">Programmes</a>
+        <a href="index.html#why">About Cedars</a>
+        <a href="index.html#impact">Our Work</a>
+        <a href="index.html#tracks">Programmes</a>
       </nav>
 
       <nav class="footer__col" aria-label="Programme">
         <span class="footer__label">PROGRAMME</span>
-        <a href="#impact">Impact</a>
-        <a href="#partner">Get Involved</a>
+        <a href="index.html#impact">Impact</a>
+        <a href="get-involved.html">Get Involved</a>
+        <a href="index.html#tracks">All seven tracks</a>
       </nav>
 
-      <nav class="footer__col" aria-label="Legal">
-        <span class="footer__label">LEGAL</span>
+      <nav class="footer__col" aria-label="Leadership">
+        <span class="footer__label">LEADERSHIP</span>
+        <a href="articles/index.html">DILP Wednesdays</a>
         <a href="#">Privacy Policy</a>
         <a href="#">Terms of Use</a>
       </nav>

@@ -128,7 +128,10 @@
       var toggles = group.querySelectorAll('[data-accordion-toggle]');
 
       toggles.forEach(function (toggle) {
-        var item = toggle.closest('.accordion__item, .faq-item');
+        // Every accordion item carries data-open; without it there is
+        // nothing to toggle, so skip rather than throwing on click.
+        var item = toggle.closest('[data-open]');
+        if (!item) return;
         var sign = toggle.querySelector('.accordion__sign');
 
         function paint(open) {
@@ -143,7 +146,7 @@
           if (single && open) {
             toggles.forEach(function (other) {
               if (other === toggle) return;
-              var otherItem = other.closest('.accordion__item, .faq-item');
+              var otherItem = other.closest('[data-open]');
               var otherSign = other.querySelector('.accordion__sign');
               otherItem.dataset.open = 'false';
               other.setAttribute('aria-expanded', 'false');
@@ -428,6 +431,118 @@
     });
   }
 
+  /* -----------------------------------------------------------------------
+     Article library: topic chips + search, filtering the grid in place
+     -------------------------------------------------------------------- */
+  function setUpArticleLibrary() {
+    var grid = document.querySelector('[data-article-grid]');
+    if (!grid) return;
+
+    var cards = Array.prototype.slice.call(grid.querySelectorAll('.article-card'));
+    var chips = document.querySelectorAll('[data-topic]');
+    var search = document.querySelector('[data-article-search]');
+    var count = document.querySelector('[data-article-count]');
+    var empty = document.querySelector('[data-article-empty]');
+    var topic = 'All topics';
+
+    function text(card) {
+      return card.textContent.toLowerCase();
+    }
+
+    function apply() {
+      var term = (search && search.value || '').trim().toLowerCase();
+      var shown = 0;
+
+      cards.forEach(function (card) {
+        var cardTopic = (card.querySelector('.article-card__topic') || {}).textContent || '';
+        var topicOk = topic === 'All topics' || cardTopic.trim() === topic;
+        var termOk = !term || text(card).indexOf(term) !== -1;
+        var show = topicOk && termOk;
+        card.hidden = !show;
+        if (show) shown++;
+      });
+
+      if (count) count.textContent = 'Showing ' + shown + ' of ' + cards.length + ' articles';
+      if (empty) empty.hidden = shown !== 0;
+    }
+
+    chips.forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        topic = chip.dataset.topic;
+        chips.forEach(function (c) { c.classList.toggle('is-active', c === chip); });
+        apply();
+      });
+    });
+
+    if (search) search.addEventListener('input', apply);
+  }
+
+  /* -----------------------------------------------------------------------
+     Donation enquiry — no backend, so the form composes an email to the
+     partnerships address with whatever the person filled in.
+     -------------------------------------------------------------------- */
+  function setUpDonationForm() {
+    var form = document.querySelector('[data-donation-form]');
+    if (!form) return;
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      var data = new FormData(form);
+      var get = function (k) { return (data.get(k) || '').toString().trim(); };
+
+      var lines = [
+        'Name: ' + get('name'),
+        'Email: ' + get('email'),
+        'Organisation: ' + (get('organisation') || '—'),
+        'Contribution type: ' + get('contribution'),
+        'Proposed contribution: ' + (get('amount') || '—'),
+        '',
+        get('message') || '(no additional notes)'
+      ];
+
+      var href =
+        'mailto:partnerships@cedarsprohub.com' +
+        '?subject=' + encodeURIComponent('Donation enquiry — DILP') +
+        '&body=' + encodeURIComponent(lines.join('\n'));
+
+      // An anchor click opens the mail client more reliably than assigning
+      // location.href, and leaves the page where it is.
+      var link = document.createElement('a');
+      link.href = href;
+      link.rel = 'noopener';
+      link.style.display = 'none';
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+    });
+  }
+
+  /* -----------------------------------------------------------------------
+     Article contents: highlight the section currently on screen
+     -------------------------------------------------------------------- */
+  function setUpArticleContents() {
+    var links = document.querySelectorAll('.contents a');
+    if (!links.length || !('IntersectionObserver' in window)) return;
+
+    var byId = {};
+    links.forEach(function (a) { byId[a.getAttribute('href').slice(1)] = a; });
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        links.forEach(function (a) { a.classList.remove('is-current'); });
+        var link = byId[entry.target.id];
+        if (link) link.classList.add('is-current');
+      });
+    }, { rootMargin: '-120px 0px -70% 0px' });
+
+    Object.keys(byId).forEach(function (id) {
+      var section = document.getElementById(id);
+      if (section) observer.observe(section);
+    });
+  }
+
   function init() {
     setUpLogos();
     setUpMarquees();
@@ -440,6 +555,9 @@
     setUpReveal();
     setUpCounters();
     setUpAnchors();
+    setUpArticleLibrary();
+    setUpDonationForm();
+    setUpArticleContents();
   }
 
   if (document.readyState === 'loading') {
