@@ -130,11 +130,16 @@
   </section>
 
   <div class="contribute-ribbon" aria-label="Ways to contribute">
-    <div class="shell contribute-ribbon__inner">
-      <span class="contribute-ribbon__item"><img src="assets/svg/marquee-sep.svg" alt="" aria-hidden="true">Sponsorship</span>
-      <span class="contribute-ribbon__item"><img src="assets/svg/marquee-sep.svg" alt="" aria-hidden="true">Coaching</span>
-      <span class="contribute-ribbon__item"><img src="assets/svg/marquee-sep.svg" alt="" aria-hidden="true">Equipment &amp; Connectivity</span>
-      <span class="contribute-ribbon__item"><img src="assets/svg/marquee-sep.svg" alt="" aria-hidden="true">Opportunity Pathways</span>
+    <div class="marquee" style="--marquee-duration: 38s" data-marquee>
+      <div class="marquee__track" data-marquee-track>
+        <p class="contribute-ribbon__item">Sponsorship</p>
+        <p class="contribute-ribbon__item">Coaching</p>
+        <p class="contribute-ribbon__item">Equipment &amp; Connectivity</p>
+        <p class="contribute-ribbon__item">Opportunity Pathways</p>
+        <p class="contribute-ribbon__item">Donations</p>
+        <p class="contribute-ribbon__item">Volunteering</p>
+        <p class="contribute-ribbon__item">Live Briefs</p>
+      </div>
     </div>
   </div>
 
@@ -169,7 +174,7 @@
           <p class="partner-option__detail">Help put the right resources in the hands of learners.</p>
         </article>
         <article class="partner-option po--amber reveal">
-          <img src="assets/svg/pillar-4.svg" alt="" aria-hidden="true">
+          <img src="assets/svg/involved-pathways.svg" alt="" aria-hidden="true">
           <h3>Opportunity Pathways</h3>
           <p class="partner-option__summary">Open a door to an internship, a job or a live brief.</p>
           <p class="partner-option__detail">Connect practical learning with real-world experience.</p>
@@ -200,6 +205,56 @@
     </div>
   </section>
 
+  
+  <section class="give" id="give">
+    <div class="shell give__inner">
+      <div class="give__intro reveal">
+        <span class="section-label section-label--amber">GIVE NOW</span>
+        <h2>Make a donation<br>in Naira or Dollars.</h2>
+        <p>Give directly through Paystack. Choose the currency that suits you, enter any amount, and a receipt is emailed to you.</p>
+      </div>
+
+      <div class="give__cards">
+        <article class="give-card give-card--ngn reveal">
+          <div class="give-card__head">
+            <span class="give-card__symbol" aria-hidden="true">₦</span>
+            <div>
+              <h3>Give in Naira</h3>
+              <p class="give-card__blurb">For supporters giving from within Nigeria.</p>
+            </div>
+          </div>
+          <ul class="give-card__amounts">
+            <li>₦25,000</li>
+            <li>₦50,000</li>
+            <li>₦150,000</li>
+            <li class="give-card__amounts-any">Any amount</li>
+          </ul>
+          <span class="btn btn--blue btn--enquiry btn--block is-pending" role="link" aria-disabled="true">NGN link coming soon</span>
+          <p class="give-card__note">Card, bank transfer or USSD.</p>
+        </article>
+        <article class="give-card give-card--usd reveal">
+          <div class="give-card__head">
+            <span class="give-card__symbol" aria-hidden="true">$</span>
+            <div>
+              <h3>Give in Dollars</h3>
+              <p class="give-card__blurb">For supporters giving from outside Nigeria.</p>
+            </div>
+          </div>
+          <ul class="give-card__amounts">
+            <li>$25</li>
+            <li>$50</li>
+            <li>$100</li>
+            <li class="give-card__amounts-any">Any amount</li>
+          </ul>
+          <span class="btn btn--blue btn--enquiry btn--block is-pending" role="link" aria-disabled="true">USD link coming soon</span>
+          <p class="give-card__note">International cards accepted.</p>
+        </article>
+      </div>
+
+      <p class="give__secure">Payments are handled by Paystack &mdash; DILP never sees or stores your card details. For a pledge, a recurring gift or a corporate donation, <a href="#donate">send a donation enquiry</a> instead.</p>
+    </div>
+  </section>
+
   <section class="donations" id="donate">
     <div class="shell donations__inner">
       <div class="donation-panel">
@@ -219,7 +274,7 @@
         <form class="enquiry" data-donation-form>
           <div class="enquiry__intro">
             <h2>Start your donation</h2>
-            <p>Tell us how you&rsquo;d like to give. This is an enquiry, not a payment.</p>
+            <p>For pledges, recurring gifts and corporate donations. To give straight away, use <a href="#give">Give now</a> above.</p>
           </div>
 
           <div class="enquiry__row">
@@ -308,7 +363,7 @@
             <span class="accordion__sign" aria-hidden="true">+</span>
           </button>
           <div class="accordion__panel" id="support-4" role="region">
-            <div><p>This page starts a donation enquiry. Discuss contribution arrangements with the DILP team; it does not collect card or bank details.</p></div>
+            <div><p>Yes. The Give now section takes card payments through Paystack in either Naira or Dollars, and emails you a receipt. The enquiry form below it is for pledges, recurring gifts and corporate donations, where the arrangement is agreed with the DILP team first.</p></div>
           </div>
         </div>
       </div>
@@ -322,7 +377,7 @@
       <p>Bring your resources, your experience or your network. Help young people turn learning into practical work.</p>
       <div class="invitation__ctas">
         <a class="btn btn--yellow btn--track" href="mailto:partnerships@cedarsprohub.com?subject=Partnership%20enquiry%20%E2%80%94%20DILP">Start a partnership enquiry</a>
-        <a class="btn btn--ghost-blue btn--track" href="#donate">Make a donation</a>
+        <a class="btn btn--ghost-blue btn--track" href="#give">Make a donation</a>
       </div>
     </div>
   </section>

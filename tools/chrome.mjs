@@ -29,6 +29,18 @@ export const TICKER_ITEMS = [
 
 export const PARTNERSHIPS_EMAIL = 'partnerships@cedarsprohub.com';
 
+/* -------------------------------------------------------------------------
+   Paystack payment links. Paste the live payment-page URL between the
+   quotes — nothing else needs changing; the "Give now" section on
+   get-involved.html picks them up on the next `node tools/build-site.mjs`.
+   A currency left blank renders as a disabled "link coming soon" button
+   instead of a dead link, so the page is safe to ship before they exist.
+   ------------------------------------------------------------------------- */
+export const PAYSTACK = {
+  ngn: '',   // e.g. https://paystack.shop/pay/dilp-naira
+  usd: '',   // e.g. https://paystack.shop/pay/dilp-dollar
+};
+
 export function ticker(base = '') {
   return `
 <div class="ticker" aria-label="Programme announcements">

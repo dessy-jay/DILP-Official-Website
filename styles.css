@@ -2251,7 +2251,7 @@ h1, h2, h3, h4, p, figure, figcaption, blockquote { margin: 0; }
   display: flex;
   flex-direction: column;
   gap: 36px;
-  padding: 34px 0 64px;
+  padding-block: 34px 64px;
 }
 
 .masthead { display: flex; align-items: flex-end; gap: 80px; }
@@ -2443,7 +2443,7 @@ h1, h2, h3, h4, p, figure, figcaption, blockquote { margin: 0; }
    ARTICLES — single article
    ========================================================================= */
 
-.article-intro__inner { display: flex; flex-direction: column; gap: 32px; padding: 34px 0 44px; }
+.article-intro__inner { display: flex; flex-direction: column; gap: 32px; padding-block: 34px 44px; }
 .article-intro__headline { max-width: 1080px; display: flex; flex-direction: column; gap: 22px; }
 .article-intro__labels { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
 .article-intro__headline h1 {
@@ -2475,7 +2475,7 @@ h1, h2, h3, h4, p, figure, figcaption, blockquote { margin: 0; }
   color: var(--text-6);
 }
 
-.reading__inner { display: flex; gap: 64px; padding: 12px 0 80px; }
+.reading__inner { display: flex; gap: 64px; padding-block: 12px 80px; }
 .reading__aside {
   flex: 0 0 240px;
   position: sticky;
@@ -2559,7 +2559,7 @@ h1, h2, h3, h4, p, figure, figcaption, blockquote { margin: 0; }
    GET INVOLVED
    ========================================================================= */
 
-.involved-hero__inner { display: flex; align-items: center; gap: 64px; padding: 60px 0 64px; }
+.involved-hero__inner { display: flex; align-items: center; gap: 64px; padding-block: 60px 64px; }
 .involved-hero__copy { flex: 650 1 650px; min-width: 0; display: flex; flex-direction: column; gap: 24px; }
 .involved-hero__copy h1 {
   font-family: var(--font-display);
@@ -2593,25 +2593,101 @@ h1, h2, h3, h4, p, figure, figcaption, blockquote { margin: 0; }
 .involved-hero__note p { font-family: var(--font-display); font-weight: 800; font-size: 22px; line-height: 1.25; }
 .involved-hero__note span { font-size: 14px; font-weight: 500; }
 
-.contribute-ribbon { background: var(--yellow-6); }
-.contribute-ribbon__inner {
+.contribute-ribbon {
   height: 68px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 24px;
+  background: var(--yellow-6);
+  overflow: hidden;
 }
 .contribute-ribbon__item {
-  display: flex;
-  align-items: center;
-  gap: 28px;
+  padding-inline: 26px;
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 17px;
+  letter-spacing: -0.2px;
   color: var(--ink);
   white-space: nowrap;
 }
-.contribute-ribbon__item img { width: 5px; height: 5px; flex: none; }
+
+/* ---------- Give now (direct Paystack donation) ---------- */
+
+.give { background: var(--surface-tint); }
+.give__inner { display: flex; flex-direction: column; gap: 36px; padding-block: 80px; }
+.give__intro { display: flex; flex-direction: column; gap: 14px; max-width: 620px; }
+.give__intro h2 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 38px;
+  line-height: 1.22;
+  color: var(--ink);
+}
+.give__intro p { font-size: 18px; line-height: 1.48; color: var(--text-7); }
+
+.give__cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.give-card {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding: 32px;
+  border: 1px solid var(--hairline-2);
+  border-radius: 24px;
+  background: var(--white);
+  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+.give-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+
+.give-card__head { display: flex; align-items: flex-start; gap: 18px; }
+.give-card__symbol {
+  flex: none;
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 1;
+}
+.give-card--ngn .give-card__symbol { background: var(--blue-pale); color: var(--blue-6); }
+.give-card--usd .give-card__symbol { background: var(--mint-1); color: var(--mint-ink); }
+.give-card__head h3 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 22px;
+  line-height: 1.25;
+  color: var(--ink);
+}
+.give-card__blurb { margin-top: 6px; font-size: 15px; line-height: 1.45; color: var(--text-7); }
+
+.give-card__amounts { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; }
+.give-card__amounts li {
+  padding: 9px 16px;
+  border: 1px solid var(--hairline-2);
+  border-radius: var(--radius-pill);
+  background: var(--surface-tint);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+.give-card__amounts-any { border-style: dashed !important; }
+
+.give-card .btn { margin-top: auto; }
+.give-card__note { font-size: 13px; font-weight: 500; color: var(--text-6); text-align: center; }
+
+.give__secure { font-size: 14px; line-height: 1.5; color: var(--text-7); max-width: 760px; }
+.give__secure a { color: var(--blue-6); font-weight: 700; text-decoration: underline; }
+
+/* A currency with no Paystack link yet: shown, but plainly not clickable. */
+.btn.is-pending {
+  background: var(--text-2);
+  color: var(--text-7);
+  cursor: not-allowed;
+  pointer-events: none;
+}
 
 .partnerships__inner { display: flex; flex-direction: column; gap: 40px; padding-block: 80px; }
 .partnerships__head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px; }
@@ -2822,6 +2898,7 @@ h1, h2, h3, h4, p, figure, figcaption, blockquote { margin: 0; }
   .partner-options { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .partner-process { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
   .donation-panel { grid-template-columns: minmax(0, 1fr); }
+  .give__cards { grid-template-columns: minmax(0, 1fr); }
   .support-questions__inner { flex-direction: column; gap: 40px; }
   .support-questions__intro { flex: 0 0 auto; }
   .reading__inner { flex-direction: column; gap: 40px; }
@@ -2833,7 +2910,6 @@ h1, h2, h3, h4, p, figure, figcaption, blockquote { margin: 0; }
   .feature { flex-direction: column; }
   .feature__story, .feature__photo { flex: 0 0 auto; }
   .feature__photo { height: 320px; }
-  .contribute-ribbon__inner { gap: 16px; overflow-x: auto; }
 }
 
 @media (max-width: 980px) {
@@ -2936,7 +3012,11 @@ h1, h2, h3, h4, p, figure, figcaption, blockquote { margin: 0; }
   .partner-process { grid-template-columns: minmax(0, 1fr); padding: 24px; }
   .enquiry__row { grid-template-columns: minmax(0, 1fr); }
   .why-give, .enquiry { padding: 28px; }
-  .editorial__inner { padding: 24px 0 48px; }
+  .give__inner { padding-block: 56px; gap: 28px; }
+  .give__intro h2 { font-size: 28px; }
+  .give-card { padding: 24px; gap: 18px; }
+  .contribute-ribbon__item { padding-inline: 18px; font-size: 16px; }
+  .editorial__inner { padding-block: 24px 48px; }
   .masthead__title h1 { font-size: 34px; }
   .masthead__intro p { font-size: 17px; }
   .feature__story { padding: 28px; }
@@ -2944,22 +3024,21 @@ h1, h2, h3, h4, p, figure, figcaption, blockquote { margin: 0; }
   .feature__photo { height: 240px; }
   .library__inner, .partnerships__inner, .donations__inner, .support-questions__inner { padding-block: 56px; }
   .library--related .library__inner { padding-block: 48px; }
-  .article-intro__inner { padding: 24px 0 32px; }
+  .article-intro__inner { padding-block: 24px 32px; }
   .article-intro__headline h1 { font-size: 32px; }
   .article-intro__standfirst { font-size: 17px; }
   .article-intro__figure img { height: 240px; border-radius: 16px; }
-  .reading__inner { padding: 8px 0 56px; }
+  .reading__inner { padding-block: 8px 56px; }
   .prose__section h2, .reflection h2 { font-size: 23px; }
   .prose__section p, .prose__closing, .reflection p { font-size: 16px; }
   .takeaways, .reflection { padding: 22px; }
-  .involved-hero__inner { padding: 36px 0 40px; }
+  .involved-hero__inner { padding-block: 36px 40px; }
   .involved-hero__copy h1 { font-size: 32px; }
   .involved-hero__lede { font-size: 17px; }
   .involved-hero__main { height: 240px; }
   .involved-hero__row { flex-direction: column; }
   .involved-hero__row img { width: 100%; height: 180px; }
   .involved-hero__note { height: auto; }
-  .contribute-ribbon__inner { justify-content: flex-start; gap: 28px; }
   .invitation h2 { font-size: 28px; }
   .invitation__inner { padding-block: 52px; }
   .why-give h2 { font-size: 28px; }

@@ -17,7 +17,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { tracks, WEEKS } from './tracks.data.mjs';
 import { articles, TOPICS, fullArticle } from './articles.data.mjs';
-import { ticker, header, footer, head, esc, pad, PARTNERSHIPS_EMAIL } from './chrome.mjs';
+import { ticker, header, footer, head, esc, pad, PARTNERSHIPS_EMAIL, PAYSTACK } from './chrome.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -504,11 +504,89 @@ ${footer(base)}
 
 /* ========================================================= get involved page */
 
+/* Direct giving through Paystack. The amounts are suggestions in copy only —
+   Paystack's own page takes the final figure, so they are not form values. */
+const GIVE_CURRENCIES = [
+  {
+    key: 'ngn',
+    cls: 'give-card--ngn',
+    label: 'Give in Naira',
+    symbol: '\u20A6',
+    code: 'NGN',
+    blurb: 'For supporters giving from within Nigeria.',
+    amounts: ['25,000', '50,000', '150,000'],
+    note: 'Card, bank transfer or USSD.',
+  },
+  {
+    key: 'usd',
+    cls: 'give-card--usd',
+    label: 'Give in Dollars',
+    symbol: '\u0024',
+    code: 'USD',
+    blurb: 'For supporters giving from outside Nigeria.',
+    amounts: ['25', '50', '100'],
+    note: 'International cards accepted.',
+  },
+];
+
+function giveSection() {
+  const cards = GIVE_CURRENCIES.map((c) => {
+    const url = PAYSTACK[c.key];
+    const cta = url
+      ? `<a class="btn btn--blue btn--enquiry btn--block" href="${esc(url)}" target="_blank" rel="noopener noreferrer">Give in ${c.code} &nbsp;&rarr;</a>`
+      : `<span class="btn btn--blue btn--enquiry btn--block is-pending" role="link" aria-disabled="true">${c.code} link coming soon</span>`;
+
+    return `<article class="give-card ${c.cls} reveal">
+          <div class="give-card__head">
+            <span class="give-card__symbol" aria-hidden="true">${c.symbol}</span>
+            <div>
+              <h3>${esc(c.label)}</h3>
+              <p class="give-card__blurb">${esc(c.blurb)}</p>
+            </div>
+          </div>
+          <ul class="give-card__amounts">
+            ${c.amounts.map((a) => `<li>${c.symbol}${esc(a)}</li>`).join('\n            ')}
+            <li class="give-card__amounts-any">Any amount</li>
+          </ul>
+          ${cta}
+          <p class="give-card__note">${esc(c.note)}</p>
+        </article>`;
+  }).join('\n        ');
+
+  return `
+  <section class="give" id="give">
+    <div class="shell give__inner">
+      <div class="give__intro reveal">
+        <span class="section-label section-label--amber">GIVE NOW</span>
+        <h2>Make a donation<br>in Naira or Dollars.</h2>
+        <p>Give directly through Paystack. Choose the currency that suits you, enter any amount, and a receipt is emailed to you.</p>
+      </div>
+
+      <div class="give__cards">
+        ${cards}
+      </div>
+
+      <p class="give__secure">Payments are handled by Paystack &mdash; DILP never sees or stores your card details. For a pledge, a recurring gift or a corporate donation, <a href="#donate">send a donation enquiry</a> instead.</p>
+    </div>
+  </section>`;
+}
+
+/* Words on the yellow contribute ribbon, which scrolls leftward. */
+const CONTRIBUTE_WAYS = [
+  'Sponsorship',
+  'Coaching',
+  'Equipment & Connectivity',
+  'Opportunity Pathways',
+  'Donations',
+  'Volunteering',
+  'Live Briefs',
+];
+
 const PARTNER_OPTIONS = [
   ['involved-gift.svg', 'po--blue', 'Sponsorship', 'Fund a place so a participant pays nothing.', 'Support access to practical training and programme delivery.'],
   ['involved-mentor.svg', 'po--mint', 'Mentorship', 'Give a few hours a month to guide a team.', 'Share your experience, review work and help participants grow.'],
   ['involved-tools.svg', 'po--peach', 'Equipment & Connectivity', 'Supply laptops, tools or connectivity for the cohort.', 'Help put the right resources in the hands of learners.'],
-  ['pillar-4.svg', 'po--amber', 'Opportunity Pathways', 'Open a door to an internship, a job or a live brief.', 'Connect practical learning with real-world experience.'],
+  ['involved-pathways.svg', 'po--amber', 'Opportunity Pathways', 'Open a door to an internship, a job or a live brief.', 'Connect practical learning with real-world experience.'],
 ];
 
 const PARTNER_STEPS = [
@@ -521,7 +599,7 @@ const SUPPORT_QA = [
   ['Can I contribute more than money?', 'Yes. Mentorship, equipment, connectivity and opportunity pathways are all ways to support DILP. Share your expertise, provide tools or open a door to an internship, a job or a live brief.'],
   ['Can an organisation partner with DILP?', 'Yes. Start a partnership enquiry to discuss sponsorship, mentorship, equipment or opportunities that fit your organisation and the programme’s needs.'],
   ['What will my donation support?', 'Support can go towards sponsored places, programme delivery, laptops, tools and connectivity. Discuss your intended contribution with the DILP team.'],
-  ['Can I make a payment on this page?', 'This page starts a donation enquiry. Discuss contribution arrangements with the DILP team; it does not collect card or bank details.'],
+  ['Can I make a payment on this page?', 'Yes. The Give now section takes card payments through Paystack in either Naira or Dollars, and emails you a receipt. The enquiry form below it is for pledges, recurring gifts and corporate donations, where the arrangement is agreed with the DILP team first.'],
 ];
 
 function getInvolvedPage() {
@@ -563,8 +641,11 @@ ${header(base, 'involved')}
   </section>
 
   <div class="contribute-ribbon" aria-label="Ways to contribute">
-    <div class="shell contribute-ribbon__inner">
-      ${['Sponsorship', 'Coaching', 'Equipment & Connectivity', 'Opportunity Pathways'].map((a) => `<span class="contribute-ribbon__item"><img src="assets/svg/marquee-sep.svg" alt="" aria-hidden="true">${esc(a)}</span>`).join('\n      ')}
+    <div class="marquee" style="--marquee-duration: 38s" data-marquee>
+      <div class="marquee__track" data-marquee-track>
+        ${CONTRIBUTE_WAYS.map((a) => `<p class="contribute-ribbon__item">${esc(a)}</p>`)
+          .join('\n        ')}
+      </div>
     </div>
   </div>
 
@@ -602,6 +683,8 @@ ${header(base, 'involved')}
     </div>
   </section>
 
+  ${giveSection()}
+
   <section class="donations" id="donate">
     <div class="shell donations__inner">
       <div class="donation-panel">
@@ -619,7 +702,7 @@ ${header(base, 'involved')}
         <form class="enquiry" data-donation-form>
           <div class="enquiry__intro">
             <h2>Start your donation</h2>
-            <p>Tell us how you&rsquo;d like to give. This is an enquiry, not a payment.</p>
+            <p>For pledges, recurring gifts and corporate donations. To give straight away, use <a href="#give">Give now</a> above.</p>
           </div>
 
           <div class="enquiry__row">
@@ -695,7 +778,7 @@ ${header(base, 'involved')}
       <p>Bring your resources, your experience or your network. Help young people turn learning into practical work.</p>
       <div class="invitation__ctas">
         <a class="btn btn--yellow btn--track" href="${partnerMail}">Start a partnership enquiry</a>
-        <a class="btn btn--ghost-blue btn--track" href="#donate">Make a donation</a>
+        <a class="btn btn--ghost-blue btn--track" href="#give">Make a donation</a>
       </div>
     </div>
   </section>
