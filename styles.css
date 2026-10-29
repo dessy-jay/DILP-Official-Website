@@ -1061,9 +1061,9 @@ h1, h2, h3, h4, p, figure, figcaption, blockquote { margin: 0; }
 
 /* ---------- 06 Practical Application: loose parts snap together ---------- */
 .dc-block { opacity: 0.45; transition: translate 0.45s var(--ease), opacity 0.45s var(--ease); }
-.dc-block--1 { translate: -7px 7px; }
-.dc-block--2 { translate: 7px 7px; }
-.dc-block--3 { translate: 0 -9px; }
+.dc-block--1 { translate: -4px 4px; }
+.dc-block--2 { translate: 4px 4px; }
+.dc-block--3 { translate: 0 -6px; }
 .develop-card:hover .dc-block { translate: 0 0; opacity: 0.8; }
 .develop-card:hover .dc-block--2 { transition-delay: 0.06s; }
 .develop-card:hover .dc-block--3 { transition-delay: 0.12s; }
