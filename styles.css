@@ -771,100 +771,10 @@ h1, h2, h3, h4, p, figure, figcaption, blockquote { margin: 0; }
 .meta-pill__item span { font-size: 12px; font-weight: 500; color: var(--text-8); white-space: nowrap; }
 .meta-pill__rule { width: 1px; height: 21px; flex: none; background: var(--text-3); }
 
-.track-featured {
-  width: 100%;
-  display: flex;
-  border: 1px solid var(--text-2);
-  border-radius: 24px;
-  background: var(--white);
-  overflow: hidden;
-  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
-}
-.track-featured:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
-
-.track-featured__thumb {
-  flex: 440 1 440px;
-  min-width: 0;
-  height: 266px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--blue-6);
-  overflow: hidden;
-}
-/* 476/440 — the designed inner overhangs the thumbnail on both sides. */
-.track-featured__thumb-inner {
-  width: 108.18%;
-  height: 276px;
-  flex: none;
-  position: relative;
-  border-radius: 14px;
-  overflow: hidden;
-}
-/* Design places a 650x433 image at (-87,-57) inside 476x276, i.e. 50% / 36%. */
-.track-featured__thumb-inner img {
-  position: absolute;
-  inset: 0;
-  max-width: none;
-  width: 100%; height: 100%;
-  object-fit: cover;
-  object-position: 50% 36%;
-  transition: transform 0.6s var(--ease);
-}
-.track-featured:hover .track-featured__thumb-inner img { transform: scale(1.05); }
-
-.track-featured__body {
-  flex: 878 1 878px;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 24px;
-  padding: 32px 36px;
-}
-.track-featured__top { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
-.chip-soft {
-  padding: 6px 10px;
-  border-radius: 6px;
-  background: var(--blue-1);
-  color: var(--blue-6);
-  font-size: 12px;
-  font-weight: 400;
-}
-.track-featured__top h3 {
-  font-family: var(--font-alt);
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 1.2;
-  color: var(--ink);
-}
-.track-featured__top p {
-  max-width: 700px;
-  font-size: 14px;
-  line-height: 24px;
-  color: var(--text-8);
-}
-.track-featured__bottom {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-}
-.track-featured__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 24px; }
-.link-strong {
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--blue-6);
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.18s var(--ease);
-}
-.link-strong:hover { border-color: var(--blue-6); }
-
 .track-grid {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 28px 20px;
 }
 
@@ -903,6 +813,7 @@ h1, h2, h3, h4, p, figure, figcaption, blockquote { margin: 0; }
 .track-card__media--graphic img { object-position: center 45%; }
 .track-card__media--ai img { object-position: center 32%; }
 .track-card__media--social img { object-position: center 17%; }
+.track-card__media--cyber img { object-position: center 42%; }
 
 .track-card__body {
   flex: 1;
@@ -928,8 +839,8 @@ h1, h2, h3, h4, p, figure, figcaption, blockquote { margin: 0; }
 .track-card__body h3 {
   font-family: var(--font-alt);
   font-weight: 600;
-  font-size: 24px;
-  line-height: 1.2;
+  font-size: 20px;
+  line-height: 1.25;
   color: var(--ink);
 }
 .track-card__body > p { font-size: 13px; line-height: 22px; color: var(--text-8); }
@@ -938,10 +849,9 @@ h1, h2, h3, h4, p, figure, figcaption, blockquote { margin: 0; }
    card, so clicking anywhere opens it. The Apply button sits above it. */
 .card-link { color: inherit; }
 .card-link::after { content: ""; position: absolute; inset: 0; z-index: 1; }
-.track-card, .track-featured { position: relative; }
-.track-card:hover .card-link,
-.track-featured:hover .card-link { color: var(--blue-6); }
-.track-card .btn, .track-featured .btn, .track-featured .link-strong { position: relative; z-index: 2; }
+.track-card { position: relative; }
+.track-card:hover .card-link { color: var(--blue-6); }
+.track-card .btn { position: relative; z-index: 2; }
 .track-card__footer {
   margin-top: auto;
   display: flex;
@@ -3009,6 +2919,7 @@ h1, h2, h3, h4, p, figure, figcaption, blockquote { margin: 0; }
    column, flex-basis would size the *height*, so each stacked child resets
    to `flex: 0 0 auto` and takes an explicit height where one is needed. */
 @media (max-width: 1120px) {
+  .track-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .promo__inner { flex-direction: column; }
   .promo__side,
   .card-urgency { flex: 0 0 auto; }
@@ -3070,12 +2981,7 @@ h1, h2, h3, h4, p, figure, figcaption, blockquote { margin: 0; }
   .hero__inner { flex-direction: column; align-items: stretch; gap: 40px; }
   .hero__copy { flex: 0 0 auto; align-items: flex-start; }
   .hero__media { flex: 0 0 auto; aspect-ratio: auto; height: 420px; }
-  .track-featured { flex-direction: column; }
-  .track-featured__thumb,
-  .track-featured__body { flex: 0 0 auto; }
-  .track-featured__thumb { height: 240px; }
-  .track-featured__thumb-inner { width: 100%; height: 240px; }
-  .track-grid { grid-template-columns: minmax(0, 1fr); }
+  .track-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .facts { flex-wrap: wrap; }
   .fact { flex: 1 1 200px; }
   .gallery__row--a, .gallery__row--c { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
@@ -3105,6 +3011,7 @@ h1, h2, h3, h4, p, figure, figcaption, blockquote { margin: 0; }
 }
 
 @media (max-width: 760px) {
+  .track-grid { grid-template-columns: minmax(0, 1fr); }
   :root { --gutter: 20px; }
   .hero__headline { font-size: 38px; line-height: 46px; letter-spacing: -1px; }
   .hero__mark { padding: 2px 12px 5px; border-radius: 10px; }
@@ -3156,7 +3063,6 @@ h1, h2, h3, h4, p, figure, figcaption, blockquote { margin: 0; }
   .footer__col { width: calc(50% - 14px); }
   .track-card__body h3 { font-size: 21px; }
   .btn--lg { padding: 14px 22px; }
-  .track-featured__body { padding: 24px; }
 
   /* New pages */
   .article-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
