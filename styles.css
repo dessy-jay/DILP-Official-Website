@@ -1040,10 +1040,10 @@ h1, h2, h3, h4, p, figure, figcaption, blockquote { margin: 0; }
 /* ---------- 03 Leadership: one steps up, the others close in ---------- */
 .dc-person { opacity: 0.45; transform-box: fill-box; transform-origin: center; transition: translate 0.45s var(--ease); }
 .dc-person--c { opacity: 0.85; }
-.develop-card:hover .dc-person--c { translate: 0 -8px; }
-.develop-card:hover .dc-person--l { translate: 6px -2px; }
-.develop-card:hover .dc-person--r { translate: -6px -2px; }
-.dc-arrow { opacity: 0.35; translate: 0 6px; transition: opacity 0.4s var(--ease) 0.14s, translate 0.4s var(--ease) 0.14s; }
+.develop-card:hover .dc-person--c { translate: 0 -6px; }
+.develop-card:hover .dc-person--l { translate: 5px -2px; }
+.develop-card:hover .dc-person--r { translate: -5px -2px; }
+.dc-arrow { opacity: 0.35; translate: 0 3px; transition: opacity 0.4s var(--ease) 0.14s, translate 0.4s var(--ease) 0.14s; }
 .develop-card:hover .dc-arrow { opacity: 0.85; translate: 0 0; }
 
 /* ---------- 04 Professional Readiness: the clock runs ---------- */
