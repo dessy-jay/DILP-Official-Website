@@ -176,8 +176,11 @@
     var gap = 18;
     var index = 0;
 
+    // Two columns only when each still has room to read. The real
+    // testimonials run to several paragraphs, so a narrow column turns into
+    // a tall sliver of text.
     function perView() {
-      return window.innerWidth <= 760 ? 1 : 2;
+      return window.innerWidth <= 1120 ? 1 : 2;
     }
     function maxIndex() {
       return Math.max(0, slides.length - perView());

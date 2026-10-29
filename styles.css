@@ -1523,7 +1523,7 @@ h1, h2, h3, h4, p, figure, figcaption, blockquote { margin: 0; }
 }
 .testimonial {
   flex: 0 0 auto;
-  height: 320px;
+  min-height: 320px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1543,10 +1543,32 @@ h1, h2, h3, h4, p, figure, figcaption, blockquote { margin: 0; }
 }
 .testimonial blockquote {
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
   font-family: var(--font-alt);
-  font-size: 18px;
-  line-height: 1.4;
+  font-size: 16px;
+  line-height: 1.6;
 }
+.testimonial blockquote p { margin: 0; }
+
+/* Initials rather than a photograph: the avatars on file are other members
+   of the cohort, and putting one beside a named quote would credit the
+   wrong face. Swap in a real headshot when there is one. */
+.testimonial__initials {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.3px;
+}
+.testimonial--blue .testimonial__initials { background: var(--blue-2); color: var(--blue-7); }
+.testimonial--grey .testimonial__initials { background: var(--text-2); color: var(--ink); }
 .testimonial__who { display: flex; align-items: center; gap: 12px; }
 .testimonial__who img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
 .testimonial__who strong {
@@ -3112,7 +3134,7 @@ h1, h2, h3, h4, p, figure, figcaption, blockquote { margin: 0; }
   .opportunity__card > .btn { width: 100%; }
   .carousel { flex-wrap: wrap; justify-content: center; }
   .carousel__viewport { order: -1; flex: 1 1 100%; }
-  .testimonial { height: auto; min-height: 280px; }
+  .testimonial { min-height: 280px; }
   .tracks__inner, .develops__inner, .why__inner, .evidence__inner,
   .journey__inner, .voices__inner, .partner__inner, .gallery__inner { padding-block: 56px; }
   .faq__inner { padding-block: 56px 64px; }
