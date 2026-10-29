@@ -2142,6 +2142,37 @@ h1, h2, h3, h4, p, figure, figcaption, blockquote { margin: 0; }
 /* ---------- Tools ---------- */
 
 .tools { background: var(--text-1); }
+/* ---------- Course overview lede ---------- */
+
+.track-overview {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 920px;
+}
+.track-overview p {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--text-7);
+}
+
+/* ---------- Career pathways ---------- */
+
+.careers { width: 100%; display: flex; flex-wrap: wrap; gap: 12px; }
+.chip-career {
+  padding: 11px 18px;
+  border: 1px solid var(--blue-2);
+  border-radius: var(--radius-pill);
+  background: var(--blue-pale);
+  color: var(--blue-ink);
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+.chip-career:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+
 .tools__inner {
   display: flex;
   flex-direction: column;
@@ -3052,6 +3083,8 @@ h1, h2, h3, h4, p, figure, figcaption, blockquote { margin: 0; }
   .track-hero__ctas { gap: 12px; }
   .btn--track { padding: 14px 24px; font-size: 14px; }
   .track-section__inner { padding-block: 56px; gap: 28px; }
+  .track-overview p { font-size: 16px; }
+  .chip-career { padding: 9px 14px; font-size: 13px; }
   .heading-track { font-size: 27px; gap: 8px; }
   .outcomes { grid-template-columns: minmax(0, 1fr); gap: 16px; }
   .phases { grid-template-columns: minmax(0, 1fr); gap: 14px; }

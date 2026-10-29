@@ -116,7 +116,12 @@ ${header(base, 'programmes', t.slug)}
 
   <section class="track-section track-section--white">
     <div class="shell track-section__inner">
-      <h2 class="heading-track reveal"><span>What you</span> <span class="accent">will learn</span></h2>
+      ${t.overview && t.overview.length
+        ? `<div class="track-overview reveal">
+        <h2 class="heading-track"><span>What you</span> <span class="accent">will learn</span></h2>
+        ${t.overview.map((para) => `<p>${esc(para)}</p>`).join('\n        ')}
+      </div>`
+        : `<h2 class="heading-track reveal"><span>What you</span> <span class="accent">will learn</span></h2>`}
       <div class="outcomes">
         ${t.outcomes.map(([title, body], i) => `<article class="outcome reveal">
           <span class="outcome__num">${pad(i + 1)}</span>
@@ -144,18 +149,25 @@ ${header(base, 'programmes', t.slug)}
     <div class="shell track-section__inner">
       <div class="curriculum__head reveal">
         <h2 class="heading-track"><span>Inside the</span> <span class="accent">curriculum</span></h2>
-        <p>Five modules across ${WEEKS} weeks. Each one ends with something you can do, not something you have heard of.</p>
+        <p>${t.curriculum.length} modules across ${WEEKS} weeks. Each one ends with something you can do, not something you have heard of.</p>
       </div>
 
       <div class="curriculum" data-accordion data-single="true">
-        ${t.curriculum.map(([title, weeks, outcomes], i) => `<div class="curriculum__item" data-open="${i === 0}">
+        ${t.curriculum.map((entry, i) => {
+          // [title, weeks, outcomes] on the hand-written tracks;
+          // [title, outcomes] on tracks taken from a curriculum PDF, which
+          // assigns modules no week ranges.
+          const title = entry[0];
+          const weeks = Array.isArray(entry[2]) ? entry[1] : null;
+          const outcomes = Array.isArray(entry[2]) ? entry[2] : entry[1];
+          return `<div class="curriculum__item" data-open="${i === 0}">
           <button class="accordion__head curriculum__head-row" type="button" aria-expanded="${i === 0}" aria-controls="module-${i + 1}" data-accordion-toggle>
             <span class="curriculum__label">
               <span class="curriculum__num">${pad(i + 1)}</span>
               <span class="curriculum__title">${esc(title)}</span>
             </span>
             <span class="curriculum__right">
-              <span class="curriculum__weeks">${esc(weeks)}</span>
+              ${weeks ? `<span class="curriculum__weeks">${esc(weeks)}</span>` : ''}
               <span class="accordion__sign" aria-hidden="true">${i === 0 ? '–' : '+'}</span>
             </span>
           </button>
@@ -166,7 +178,8 @@ ${header(base, 'programmes', t.slug)}
               </ul>
             </div>
           </div>
-        </div>`).join('\n        ')}
+        </div>`;
+        }).join('\n        ')}
       </div>
     </div>
   </section>
@@ -198,6 +211,15 @@ ${header(base, 'programmes', t.slug)}
       </div>
     </div>
   </section>
+${t.careers && t.careers.length ? `
+  <section class="track-section track-section--white">
+    <div class="shell track-section__inner">
+      <h2 class="heading-track reveal"><span>Where this</span> <span class="accent">can lead</span></h2>
+      <div class="careers reveal">
+        ${t.careers.map((c) => `<span class="chip-career">${esc(c)}</span>`).join('\n        ')}
+      </div>
+    </div>
+  </section>` : ''}
 
   <section class="tools">
     <div class="shell tools__inner">

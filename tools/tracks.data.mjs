@@ -1,15 +1,22 @@
 /* =========================================================================
    Track page content — the single source for the generated track pages.
-   Edit here, then run:  node tools/build-tracks.mjs
+   Edit here, then run:  node tools/build-site.mjs
    =========================================================================
 
    Content provenance
    ------------------
+   Front-End Development, Graphic Design, AI & Automation and Data Analytics
+   take their description, overview, outcomes, careers and curriculum straight
+   from the official DILP curriculum PDFs. Their phases, capstone copy, tools,
+   requirements and "good fit" lines are still drafted.
+
    The Cybersecurity track is transcribed from the Figma design
-   (node 2012:9321). Everything for the other tracks — outcomes, capstone
-   copy, tools, the "good fit" line — is drafted to the same shape and needs
-   sign-off. The curriculum modules on every track are drafted
-   (see ../content/curriculum.md).
+   (node 2012:9321). Back-End Development and Product Design are drafted
+   throughout and need sign-off (see ../content/curriculum.md).
+
+   Curriculum entries come in two shapes:
+     [title, weeks, bullets]  drafted tracks, which assign week ranges
+     [title, bullets]         PDF tracks, where the source gives no weeks
 
    Every track runs 12 weeks.                                               */
 
@@ -118,41 +125,80 @@ export const tracks = [
     imageAlt: 'DILP participants concentrating during a front-end session.',
     cardBlurb: 'Build the screens people actually use — responsive, accessible and fast.',
     description:
-      'Build the screens people actually use — responsive, accessible and fast. You finish by shipping a front end for a real community organisation.',
+      'An intensive, hands-on track in building modern, responsive and user-friendly websites and web applications. You learn to turn ideas, designs and user needs into engaging digital experiences using HTML, CSS, JavaScript and React.',
+    overview: [
+      'The Front-End Development track is an intensive, hands-on course designed to equip learners with the skills needed to build modern, responsive and user-friendly websites and web applications.',
+      'You learn how to translate ideas, designs and user needs into engaging digital experiences using industry-standard technologies such as HTML, CSS, JavaScript and React. The track takes you from beginner to job-ready in three months, combining technical training, design thinking, real-world projects and the practices used by professional development teams globally.',
+    ],
+    careers: ['Frontend Developer', 'UI Developer', 'Web Developer', 'JavaScript Engineer', 'React Developer'],
     outcomes: [
-      ['Structure and style', 'Semantic HTML and CSS that still makes sense when someone else opens it.'],
-      ['Responsive layout', 'One build that holds up from a 320px phone to a desktop monitor.'],
-      ['JavaScript in the browser', 'Handle events, state and data — and recover when a request fails.'],
-      ['Components and routing', 'Break a design into reusable parts and ship a multi-screen app.'],
-      ['Accessibility and speed', 'Keyboard, screen reader, contrast and load time treated as requirements.'],
-      ['Capstone project', 'Build and deploy the front end of a tool a real organisation asked for.'],
+      ['Responsive, standards-based sites', 'Build responsive, accessible and standards-compliant websites using HTML5, CSS3 and modern JavaScript (ES6+).'],
+      ['Dynamic React applications', 'Develop dynamic, interactive web applications using React.js.'],
+      ['API integration', 'Consume and integrate APIs to connect front-end applications with back-end services.'],
+      ['Version control and collaboration', 'Use Git and GitHub for version control and team collaboration.'],
+      ['Deployment and maintenance', 'Deploy and maintain production-ready web applications using modern hosting platforms.'],
     ],
     phases: phases('Guided build work with a mentor reviewing what you produce.'),
     curriculum: [
-      ['The web, properly', 'Weeks 1–3', [
-        'Write semantic HTML and CSS you can still read in a month',
-        'Build a layout that holds up from a 320px phone to a desktop monitor',
-        'Use browser dev tools to find out why something moved',
+      ['Introduction to the Web', [
+        'How the internet and web work',
+        'Overview of web technologies',
+        'Frontend vs backend roles',
       ]],
-      ['JavaScript that does something', 'Weeks 4–5', [
-        'Handle events, state and data without reaching for a framework',
-        'Call an API and deal with it failing',
-        'Debug from the error message rather than by guessing',
+      ['HTML Fundamentals', [
+        'Page structure, tags and attributes',
+        'Links, lists and images',
       ]],
-      ['Components and frameworks', 'Weeks 6–8', [
-        'Break a design into components that get reused',
-        'Manage state across a screen without it becoming a knot',
-        'Ship a multi-screen app with routing',
+      ['Advanced HTML & Semantic Layout', [
+        'Forms, tables and multimedia',
+        'Semantic elements and accessibility',
       ]],
-      ['Accessible and fast', 'Weeks 9–10', [
-        'Make it work with a keyboard and with a screen reader',
-        'Measure load performance, then actually improve it',
-        'Meet a contrast and focus standard rather than guessing at one',
+      ['CSS Basics', [
+        'Selectors, colours and the box model',
+        'Typography and inheritance',
       ]],
-      ['Capstone: build and ship', 'Weeks 11–12', [
-        'Take a real brief from a community organisation',
-        'Build, test and deploy the front end',
-        'Present it and hand over the code',
+      ['Layout Techniques', [
+        'Flexbox and grid systems',
+        'Responsive layout strategies',
+      ]],
+      ['CSS Styling & Animations', [
+        'Transitions and keyframes',
+        'Custom fonts and UI design principles',
+      ]],
+      ['JavaScript Basics', [
+        'Variables, data types and operators',
+        'Conditionals, loops and functions',
+      ]],
+      ['DOM Manipulation & Events', [
+        'Selecting and modifying elements',
+        'Event handling and form validation',
+      ]],
+      ['ES6+ Features', [
+        'let and const',
+        'Arrow functions and destructuring',
+        'Template literals and modules',
+      ]],
+      ['APIs & Asynchronous JavaScript', [
+        'Fetch API, promises and async/await',
+        'Working with JSON data',
+      ]],
+      ['Career Readiness & Next Steps', [
+        'Git basics, branching and merging',
+        'Collaboration on GitHub',
+        'Hosting projects on GitHub',
+      ]],
+      ['Introduction to React', [
+        'Components, props and state',
+        'JSX and project setup',
+      ]],
+      ['React Routing & API Integration', [
+        'React Router',
+        'Fetching data from APIs',
+      ]],
+      ['Capstone Project', [
+        'Build and deploy a complete front-end web app',
+        'Apply all learned concepts in a real-world project',
+        'Present and document the project for your portfolio and Demo Day',
       ]],
     ],
     capstone:
@@ -286,41 +332,92 @@ export const tracks = [
     imageAlt: 'A DILP participant setting up a presentation in the training room.',
     cardBlurb: 'Make the identity, layouts and campaign work an organisation runs on.',
     description:
-      'Make the identity, layouts and campaign work an organisation runs on. You finish by designing a full visual identity for a real community organisation.',
+      'A hands-on introduction to graphic design fundamentals, visual storytelling and brand communication. You progress from basic design principles to professional-quality digital and print work.',
+    overview: [
+      'This hands-on track introduces learners to graphic design fundamentals, visual storytelling and brand communication. Participants progress from understanding basic design principles to producing professional-quality digital and print designs.',
+      'Over three months, learners work on practical design tasks, collaborative challenges and a final capstone project aligned with real community or business needs.',
+    ],
+    careers: ['Graphics Designer', 'Visual Communication Assistant', 'Brand & Media Designer', 'Social Media Designer', 'Creative Support Officer', 'Freelance Designer'],
     outcomes: [
-      ['Design fundamentals', 'Composition, hierarchy and the grid that holds a layout together.'],
-      ['Typography', 'Choose and pair type, then set it so people actually read it.'],
-      ['Colour and brand', 'Build a palette and the rules that keep it consistent everywhere.'],
-      ['Layout and print', 'Design a poster, a flyer and a feed post without starting over each time.'],
-      ['Working to a brief', 'Take notes from a client and come back with options, not guesses.'],
-      ['Capstone project', 'Design a full visual identity for a real community organisation.'],
+      ['Visual communication', 'Communicate ideas clearly through visual design.'],
+      ['CorelDRAW and Canva', 'Create professional graphics using CorelDRAW and Canva.'],
+      ['Branding and content assets', 'Design branding, marketing and digital content assets.'],
+      ['Design principles in practice', 'Apply design principles to real-world problems.'],
+      ['Creative collaboration', 'Work collaboratively on creative projects.'],
+      ['A professional portfolio', 'Build and present a professional design portfolio.'],
     ],
     phases: phases('Guided studio work with a mentor reviewing what you produce.'),
     curriculum: [
-      ['Seeing like a designer', 'Weeks 1–3', [
-        'Compose a layout that leads the eye where you want it',
-        'Use a grid, and know when to break it',
-        'Critique work without saying "I like it"',
+      ['Foundations of Graphic Design', [
+        'What is graphic design?',
+        'The role of design in business and innovation',
+        'Understanding visual communication',
+        'Introduction to CorelDRAW and Canva',
       ]],
-      ['Type that reads', 'Weeks 4–5', [
-        'Pair typefaces with a reason you can defend',
-        'Set body text people actually finish',
-        'Fix the spacing problems you could not see before',
+      ['Design Principles & Visual Storytelling', [
+        'Elements and principles of design',
+        'Layout, balance, contrast and hierarchy',
+        'Visual storytelling for impact',
+        'Designing for different audiences',
       ]],
-      ['Colour and identity', 'Weeks 6–8', [
-        'Build a palette that works in print and on a screen',
-        'Design a mark that survives being shrunk',
-        'Write the rules so someone else stays on brand',
+      ['Typography & Color for Brand Communication', [
+        'Typography basics and font pairing',
+        'Readability and visual hierarchy',
+        'Colour theory and psychology',
+        'Creating brand colour systems',
       ]],
-      ['From brief to artwork', 'Weeks 9–10', [
-        'Turn a vague client request into a brief',
-        'Produce three options instead of one',
-        'Prepare files that print without surprises',
+      ['CorelDRAW Essentials', [
+        'The CorelDRAW interface and tools',
+        'Shapes, text, alignment and layers',
+        'Image importing and editing',
+        'Layout composition',
       ]],
-      ['Capstone: a full identity', 'Weeks 11–12', [
-        'Design the identity for a partner organisation',
-        'Package the mark, palette, type and templates',
-        'Present the system and hand over the files',
+      ['CorelDRAW for Branding & Print', [
+        'Logo design fundamentals',
+        'Business cards and stationery',
+        'Banners, posters and print layouts',
+        'Preparing files for print',
+      ]],
+      ['Canva for Digital & Social Media Design', [
+        'The Canva workspace and templates',
+        'Social media and marketing designs',
+        'Presentations and campaign materials',
+        'Brand kits and consistency',
+      ]],
+      ['Branding & Visual Identity Systems', [
+        'What is branding?',
+        'Visual identity systems',
+        'Consistency across digital platforms',
+        'Brand storytelling',
+      ]],
+      ['Designing for Digital Platforms', [
+        'Designing for social media platforms',
+        'Image sizes and platform standards',
+        'Visuals for engagement and conversion',
+        'Mobile-first design thinking',
+      ]],
+      ['Print Design & Production', [
+        'Print vs digital design',
+        'File formats and colour modes',
+        'Working with printers',
+        'Quality control',
+      ]],
+      ['Creative Workflow & Collaboration', [
+        'Understanding design briefs',
+        'Research, ideation and concept development',
+        'Feedback, iteration and improvement',
+        'Team collaboration',
+      ]],
+      ['Career Readiness & Personal Branding', [
+        'Building a design portfolio',
+        'Presenting design work',
+        'Freelancing and career pathways',
+        'Professional ethics',
+      ]],
+      ['DILP Capstone Project', [
+        'Design a complete visual solution for a startup, a business or a community initiative',
+        'Include a logo plus marketing and social media designs',
+        'Present the project at DILP Demo Day',
       ]],
     ],
     capstone:
@@ -342,41 +439,115 @@ export const tracks = [
     imageAlt: 'A speaker presenting at a DILP session.',
     cardBlurb: 'Put AI to work on real tasks, and automate the ones done by hand.',
     description:
-      'Put AI tools to work on real tasks, and automate the ones nobody should be doing by hand. You finish by shipping a working automation for a real community organisation.',
+      'Practical, no-code skills to design, build and deploy AI-powered automation systems using visual tools and platforms, without writing a single line of code.',
+    overview: [
+      'This track equips learners with practical, no-code skills to design, build and deploy AI-powered automation systems using visual tools and platforms, without writing a single line of code.',
+      'Participants learn how to apply AI tools, build intelligent workflows, create chatbots and AI agents, and automate real business processes using no-code platforms such as ChatGPT, Make, n8n and ManyChat. The track is beginner-friendly, hands-on and portfolio-driven.',
+    ],
+    careers: ['AI Automation Specialist', 'Business Process Automation Consultant', 'No-Code AI Developer', 'AI Product Manager', 'Intelligent Systems Analyst'],
     outcomes: [
-      ['How these tools work', 'What a model can and cannot do, explained in plain language.'],
-      ['Prompting with intent', 'Get a useful answer on the second try, not the tenth.'],
-      ['Automating real work', 'Connect tools so a manual, repeated task runs itself.'],
-      ['Building with AI', 'Add a model to something you built, and handle it getting things wrong.'],
-      ['Judgement and ethics', 'Know when not to use it, and what never to put into it.'],
-      ['Capstone project', 'Ship an automation that saves a real organisation real hours.'],
+      ['AI and automation principles', 'Understand the core principles of artificial intelligence, machine learning and automation.'],
+      ['No-code workflows', 'Build simple automation workflows using no-code and low-code tools such as Zapier, Make, n8n and the ChatGPT API.'],
+      ['AI for business', 'Apply AI tools for business operations, marketing, analytics and productivity enhancement.'],
+      ['End-to-end integration', 'Integrate AI tools into end-to-end workflows.'],
+      ['Automation-driven solutions', 'Design and deploy automation-driven solutions that improve efficiency and decision-making.'],
+      ['Responsible use of AI', 'Apply ethical and responsible AI practices.'],
     ],
     phases: phases('Guided build work with a mentor reviewing what you produce.'),
     curriculum: [
-      ['What these tools actually do', 'Weeks 1–3', [
-        'Explain in plain language what a model is doing',
-        'Say where it will be confidently wrong',
-        'Pick the right tool for a task instead of the loudest one',
+      ['Introduction to Artificial Intelligence', [
+        'What AI is (and what it is not)',
+        'A brief history and evolution of AI',
+        'Types of AI: narrow AI, generative AI, assistive AI',
+        'AI capabilities and limitations',
+        'Real-world AI use cases across industries',
       ]],
-      ['Getting useful output', 'Weeks 4–5', [
-        'Write prompts that produce work you can actually use',
-        'Give a model context without drowning it',
-        'Check output rather than trusting it',
+      ['Generative AI Fundamentals', [
+        'How generative AI produces outputs, in plain language',
+        'Text, image and data AI tools',
+        'Strengths, limitations and reliability',
+        'Common failure patterns and how to handle them',
+        'Practical use cases: writing, research, brainstorming, analysis',
       ]],
-      ['Automating the boring part', 'Weeks 6–8', [
-        'Map a manual process end to end',
-        'Connect tools so the process runs without you',
-        'Handle the step that fails at two in the morning',
+      ['Prompt Engineering Fundamentals', [
+        'What is prompt engineering?',
+        'How AI interprets instructions',
+        'Prompt structures: role, context, task, output',
+        'Prompt testing and refinement',
+        'Common prompting mistakes',
       ]],
-      ['Building something with a model in it', 'Weeks 9–10', [
-        'Call an AI API from your own project',
-        'Design for the times it gets things wrong',
-        'Keep cost and data under control',
+      ['AI for Productivity, Business & Creativity', [
+        'AI for personal productivity',
+        'AI for business operations and decision-making',
+        'AI for content, communication and creativity',
+        'Identifying high-impact AI opportunities',
+        'Human-in-the-loop workflows',
       ]],
-      ['Capstone: automate real work', 'Weeks 11–12', [
-        'Find the task an organisation does by hand every week',
-        'Build and test the automation with them',
-        'Hand it over with instructions they can follow',
+      ['Introduction to Automation', [
+        'What is automation?',
+        'Types of automation: task, process, intelligent',
+        'Overview of no-code automation platforms',
+        'Relationships and advanced data structures',
+        'Visual data mapping (tables, records, fields)',
+      ]],
+      ['Building No-Code Automated Workflows', [
+        'Designing simple automation workflows',
+        'Connecting apps and tools without code',
+        'Automating emails, forms, notifications and file management',
+        'Testing and improving automated processes',
+      ]],
+      ['Workflow Design & Best Practices', [
+        'Automation planning and scoping',
+        'Workflow documentation',
+        'Naming, structure and maintainability',
+        'Scaling no-code workflows',
+        'Common business automation patterns',
+      ]],
+      ['Chatbot Development & Implementation', [
+        'What chatbots are and where they add value',
+        'Designing chatbot conversations',
+        'No-code chatbot platforms: Chatbase, Voiceflow, ManyChat, n8n',
+        'Knowledge bases and FAQ bots',
+        'Advanced features: memory, fallback, escalation',
+      ]],
+      ['AI Agents & Agentic Systems', [
+        'Understanding AI agents and their types',
+        'What AI agents are, explained non-technically',
+        'Task-based vs conversational agents',
+        'Agent capabilities: memory, tools, decision steps',
+        'No-code agent platforms: n8n, Relevance AI, Flowise, Lindy',
+        'Human oversight and safety',
+      ]],
+      ['AI + Automation Integration', [
+        'Combining AI tools with automation platforms',
+        'Automating AI outputs into workflows',
+        'Customer support, content and operations pipelines',
+        'Designing intelligent business processes',
+        'Exercise: design an AI agent workflow and build a no-code AI agent system',
+      ]],
+      ['Productivity Systems & Personal Automation', [
+        'AI for time management and task prioritisation',
+        'Automating personal workflows',
+        'Building smart daily, weekly and project systems',
+        'Reducing manual work and cognitive load with AI',
+      ]],
+      ['Ethics, Governance & Responsible Use of AI', [
+        'AI ethics and bias',
+        'Governance and accountability',
+        'Data privacy and security',
+        'Safe and responsible AI use',
+      ]],
+      ['Career Readiness & Professional Application', [
+        'Positioning yourself as an AI and automation professional',
+        'Building a portfolio of AI and automation use cases',
+        'Communicating AI value to teams and organisations',
+        'Preparing for AI-driven roles and opportunities',
+      ]],
+      ['Capstone Project', [
+        'Design and build a complete AI-powered automation system',
+        'Solve a real-world problem',
+        'Document workflows, prompts and impact',
+        'Present at Demo Day',
       ]],
     ],
     capstone:
@@ -398,41 +569,70 @@ export const tracks = [
     imageAlt: 'A facilitator at a whiteboard during a data analytics class.',
     cardBlurb: 'Turn messy data into answers a decision-maker can act on.',
     description:
-      'Turn messy data into answers a decision-maker can act on. You finish by answering a real question for a real community organisation.',
+      'Turn data into actionable insights that drive smarter decisions. You learn to collect, clean, analyse and visualise data using the tools trusted by leading organisations, with no prior experience required.',
+    overview: [
+      'The Data Analytics track is designed to help you master the art of turning data into actionable insights that drive smarter business decisions.',
+      'Through a combination of theory, tools and hands-on projects, you learn how to collect, clean, analyse and visualise data effectively, using the same tools and techniques trusted by leading organisations. The track is beginner-friendly, requires no prior experience, and prepares you for high-demand roles in data analytics, business intelligence and strategy.',
+    ],
+    careers: ['Data Analyst', 'Business Intelligence Analyst', 'Data Visualization Specialist', 'Operations Data Analyst', 'Junior Data Scientist'],
     outcomes: [
-      ['Clean data', 'Spot the rows that will ruin your answer, and document what you changed.'],
-      ['Querying', 'Write SQL that answers a question someone asked in words.'],
-      ['Analysis', 'Choose a summary that does not mislead, and test whether a difference is real.'],
-      ['Visualisation', 'Charts that make the point in one look, not in three paragraphs.'],
-      ['Communicating findings', 'Brief a decision-maker in five minutes, without the jargon.'],
-      ['Capstone project', 'Answer a real question for a real community organisation, with a recommendation.'],
+      ['Principles of analytics', 'Understand the key principles of data analytics and how data informs decision-making.'],
+      ['Excel and Power BI', 'Use tools like Excel and Power BI to analyse, clean and visualise datasets.'],
+      ['Data storytelling', 'Communicate findings effectively through data storytelling and dashboards.'],
+      ['Real-world problem solving', 'Apply real-world analytics techniques to solve business and organisational problems.'],
     ],
     phases: phases('Guided analysis work with a mentor reviewing what you produce.'),
     curriculum: [
-      ['Getting to clean data', 'Weeks 1–3', [
-        'Work a spreadsheet properly before reaching for anything heavier',
-        'Spot the rows that will ruin your answer',
-        'Document what you changed and why',
+      ['Introduction to Data Analysis', [
+        'What data analysis is and why it matters',
+        'The process of data analysis',
+        'Data analyst roles, skills and career paths',
+        'Exercise: identify how data is used in a business you admire',
       ]],
-      ['Querying and shaping', 'Weeks 4–5', [
-        'Write SQL that answers a question asked in words',
-        'Join data from more than one source',
-        'Automate a step you have now done three times',
+      ['Understanding the Data Landscape', [
+        'Data sources: databases, files, APIs and online platforms',
+        'Structured vs unstructured data',
+        'The data analysis workflow: collect, clean, analyse, visualise, report',
+        'Exercise: research a dataset relevant to your field of interest',
       ]],
-      ['Analysis that holds up', 'Weeks 6–8', [
-        'Choose a summary that does not mislead',
-        'Test whether a difference is real',
-        'Say what the data cannot tell you',
+      ['Core Analytical Skills & Foundations', [
+        'Technical skills: Excel formulas, syntax and the Power BI interface',
+        'Analytical thinking: asking the right questions and interpreting data',
+        'Soft skills: communication, storytelling with data, attention to detail',
       ]],
-      ['Showing the answer', 'Weeks 9–10', [
-        'Build a chart that makes the point in one look',
-        'Assemble a dashboard someone will check weekly',
-        'Brief a decision-maker in five minutes',
+      ['Mastering Excel for Data Analysis', [
+        'Data cleaning, formatting and transformation',
+        'Advanced formulas (VLOOKUP, INDEX-MATCH, IF, SUMIFS and more)',
+        'Pivot tables and charts',
+        'Exercise: analyse sales data and generate insights',
       ]],
-      ['Capstone: answer a real question', 'Weeks 11–12', [
-        'Scope the question with a partner organisation',
-        'Do the analysis, then sanity-check it',
-        'Present the findings and a recommendation',
+      ['Power BI for Visualization & Dashboards', [
+        'Introduction to the Power BI interface',
+        'Connecting and transforming data with Power Query',
+        'Building data models and relationships',
+        'Creating interactive dashboards and reports',
+        'Exercise: build a Power BI dashboard for a sample business',
+      ]],
+      ['Practical Data Projects', [
+        'End-to-end data analysis using Excel and Power BI',
+        'Real-world project simulation',
+        'Assignment: present your final project dashboard',
+      ]],
+      ['SQL for Data Querying & Insights', [
+        'Understanding databases and relationships',
+        'Basic SQL syntax (SELECT, WHERE, ORDER BY, GROUP BY)',
+        'Exercise: write SQL queries to extract insights from a sample database',
+      ]],
+      ['Analyzing Data with AI', [
+        'Introduction to AI tools for analysts (ChatGPT, Copilot)',
+        'Using AI for data cleaning, summarisation and reporting',
+        'Integrating AI into Power BI and Excel workflows',
+        'Exercise: use AI to automate part of your analysis process',
+      ]],
+      ['Building Your Portfolio & Resume', [
+        'Structuring your data analysis portfolio',
+        'Resume templates for data roles',
+        'Exercise: upload one finished project to your portfolio',
       ]],
     ],
     capstone:
