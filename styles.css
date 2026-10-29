@@ -771,10 +771,15 @@ h1, h2, h3, h4, p, figure, figcaption, blockquote { margin: 0; }
 .meta-pill__item span { font-size: 12px; font-weight: 500; color: var(--text-8); white-space: nowrap; }
 .meta-pill__rule { width: 1px; height: 21px; flex: none; background: var(--text-3); }
 
+
+/* 476/440 — the designed inner overhangs the thumbnail on both sides. */
+/* Design places a 650x433 image at (-87,-57) inside 476x276, i.e. 50% / 36%. */
+
+
 .track-grid {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 28px 20px;
 }
 
@@ -806,6 +811,7 @@ h1, h2, h3, h4, p, figure, figcaption, blockquote { margin: 0; }
   transition: transform 0.6s var(--ease);
 }
 .track-card:hover .track-card__media img { transform: scale(1.06); }
+.track-card__media--cyber img { object-position: center 38%; }
 .track-card__media--data img { object-position: center 22%; }
 .track-card__media--backend img { object-position: center 34%; }
 .track-card__media--design img { object-position: center 38%; }
@@ -813,7 +819,6 @@ h1, h2, h3, h4, p, figure, figcaption, blockquote { margin: 0; }
 .track-card__media--graphic img { object-position: center 45%; }
 .track-card__media--ai img { object-position: center 32%; }
 .track-card__media--social img { object-position: center 17%; }
-.track-card__media--cyber img { object-position: center 42%; }
 
 .track-card__body {
   flex: 1;
@@ -839,8 +844,8 @@ h1, h2, h3, h4, p, figure, figcaption, blockquote { margin: 0; }
 .track-card__body h3 {
   font-family: var(--font-alt);
   font-weight: 600;
-  font-size: 20px;
-  line-height: 1.25;
+  font-size: 24px;
+  line-height: 1.2;
   color: var(--ink);
 }
 .track-card__body > p { font-size: 13px; line-height: 22px; color: var(--text-8); }
@@ -850,7 +855,7 @@ h1, h2, h3, h4, p, figure, figcaption, blockquote { margin: 0; }
 .card-link { color: inherit; }
 .card-link::after { content: ""; position: absolute; inset: 0; z-index: 1; }
 .track-card { position: relative; }
-.track-card:hover .card-link { color: var(--blue-6); }
+.track-card:hover .card-link,
 .track-card .btn { position: relative; z-index: 2; }
 .track-card__footer {
   margin-top: auto;
@@ -2919,7 +2924,6 @@ h1, h2, h3, h4, p, figure, figcaption, blockquote { margin: 0; }
    column, flex-basis would size the *height*, so each stacked child resets
    to `flex: 0 0 auto` and takes an explicit height where one is needed. */
 @media (max-width: 1120px) {
-  .track-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .promo__inner { flex-direction: column; }
   .promo__side,
   .card-urgency { flex: 0 0 auto; }
@@ -2981,7 +2985,7 @@ h1, h2, h3, h4, p, figure, figcaption, blockquote { margin: 0; }
   .hero__inner { flex-direction: column; align-items: stretch; gap: 40px; }
   .hero__copy { flex: 0 0 auto; align-items: flex-start; }
   .hero__media { flex: 0 0 auto; aspect-ratio: auto; height: 420px; }
-  .track-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .track-grid { grid-template-columns: minmax(0, 1fr); }
   .facts { flex-wrap: wrap; }
   .fact { flex: 1 1 200px; }
   .gallery__row--a, .gallery__row--c { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
@@ -3011,7 +3015,6 @@ h1, h2, h3, h4, p, figure, figcaption, blockquote { margin: 0; }
 }
 
 @media (max-width: 760px) {
-  .track-grid { grid-template-columns: minmax(0, 1fr); }
   :root { --gutter: 20px; }
   .hero__headline { font-size: 38px; line-height: 46px; letter-spacing: -1px; }
   .hero__mark { padding: 2px 12px 5px; border-radius: 10px; }
