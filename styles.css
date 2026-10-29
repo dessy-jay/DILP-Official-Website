@@ -191,14 +191,6 @@ h1, h2, h3, h4, p, figure, figcaption, blockquote { margin: 0; }
 .btn--yellow:hover,
 .btn--yellow-alt:hover { box-shadow: 0 12px 26px -14px rgba(255, 200, 90, 0.9); }
 
-.btn--dark {
-  --btn-hover: #3a4145;
-  --btn-hover: color-mix(in srgb, var(--ink) 82%, #fff);
-  background: var(--ink);
-  color: var(--white);
-}
-.btn--dark:hover { box-shadow: var(--shadow-md); }
-
 .btn--black {
   --btn-hover: #2e2e2e;
   --btn-hover: color-mix(in srgb, var(--black) 82%, #fff);
