@@ -995,12 +995,121 @@ h1, h2, h3, h4, p, figure, figcaption, blockquote { margin: 0; }
   overflow: hidden;
   container-type: inline-size;
 }
-.develop-card__art img { position: absolute; }
-.develop-card__art .s1 { left: 26px; top: 42px; width: 96px; height: 96px; }
-.develop-card__art .s2 { left: 104px; top: 20px; width: 58px; height: 58px; transition: transform 0.45s var(--ease); }
-.develop-card__art .s3 { left: 208px; top: 54px; width: 40px; height: 40px; transition: transform 0.45s var(--ease); }
-.develop-card:hover .develop-card__art .s2 { transform: translateY(-6px); }
-.develop-card:hover .develop-card__art .s3 { transform: rotate(90deg) scale(1.1); }
+/* Each card carries its own illustration, drawn in that card's accent. The
+   artwork is inline SVG rather than an <img> so the hover motion can reach
+   the parts inside it. Drawings stop short of x=250 in the 264-wide viewBox,
+   which is where the card's number sits. */
+.dc-art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  fill: var(--dc-accent);
+}
+
+/* Shared furniture: the soft disc behind the drawing and the trailing dot. */
+.dc-halo { opacity: 0.16; }
+.dc-dot { opacity: 0.4; transition: scale 0.45s var(--ease), opacity 0.45s var(--ease); }
+.develop-card:hover .dc-dot { scale: 1.25; opacity: 0.6; }
+.dc-dot { transform-box: fill-box; transform-origin: center; }
+
+/* Anything drawn as a line shares one stroke treatment. */
+.dc-lens-ring, .dc-lens-handle, .dc-hand, .dc-check, .dc-tick,
+.dc-trend, .dc-trend-head, .dc-caret, .dc-clock-rim, .dc-arrow-line {
+  fill: none;
+  stroke: var(--dc-accent);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ---------- 01 Digital Capability: the code retypes itself ---------- */
+.dc-screen { opacity: 0.26; }
+.dc-screen-bar { opacity: 0.4; }
+.dc-screen-dot { opacity: 0.75; }
+.dc-stand, .dc-base { opacity: 0.55; }
+.dc-chip { opacity: 0.2; }
+.dc-caret-line { opacity: 0.8; }
+.dc-line { transform-box: fill-box; transform-origin: left center; }
+@keyframes dc-type { from { scale: 0 1; } to { scale: 1 1; } }
+.develop-card:hover .dc-line { animation: dc-type 0.42s var(--ease) both; }
+.develop-card:hover .dc-line--2 { animation-delay: 0.1s; }
+.develop-card:hover .dc-line--3 { animation-delay: 0.2s; }
+@keyframes dc-blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.2; } }
+.develop-card:hover .dc-caret { animation: dc-blink 0.9s steps(1, end) infinite; }
+
+/* ---------- 02 Innovation: the lens travels to the real problem ---------- */
+.dc-seed { opacity: 0.4; }
+.dc-seed--key {
+  opacity: 0.4;
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: scale 0.4s var(--ease) 0.28s, opacity 0.4s var(--ease) 0.28s;
+}
+.develop-card:hover .dc-seed--key { opacity: 1; scale: 1.3; }
+.dc-lens {
+  translate: -17px 11px;
+  transition: translate 0.52s var(--ease);
+}
+.develop-card:hover .dc-lens { translate: 0 0; }
+.dc-bulb { opacity: 0.45; transition: opacity 0.4s var(--ease) 0.2s; }
+.dc-bulb-base { opacity: 0.6; }
+.develop-card:hover .dc-bulb { opacity: 0.9; }
+
+/* ---------- 03 Leadership: one steps up, the others turn in ---------- */
+.dc-person { opacity: 0.55; transform-box: fill-box; transform-origin: center bottom; transition: translate 0.45s var(--ease), rotate 0.45s var(--ease); }
+.dc-person--c { opacity: 0.9; }
+.develop-card:hover .dc-person--c { translate: 0 -9px; }
+.develop-card:hover .dc-person--l { rotate: 7deg; }
+.develop-card:hover .dc-person--r { rotate: -7deg; }
+.dc-arrow { opacity: 0; translate: 0 9px; transition: opacity 0.4s var(--ease) 0.12s, translate 0.4s var(--ease) 0.12s; }
+.develop-card:hover .dc-arrow { opacity: 0.85; translate: 0 0; }
+.dc-ring { opacity: 0.2; }
+
+/* ---------- 04 Professional Readiness: clock runs, checklist ticks ---------- */
+.dc-clock-face { opacity: 0.22; }
+.dc-clock-rim { opacity: 0.45; stroke-width: 2.5; }
+.dc-pivot { opacity: 0.9; }
+.dc-hand { transform-box: view-box; transform-origin: 70px 66px; }
+@keyframes dc-sweep { to { rotate: 360deg; } }
+.develop-card:hover .dc-hand--m { animation: dc-sweep 1.6s linear infinite; }
+.develop-card:hover .dc-hand--h { animation: dc-sweep 9.6s linear infinite; }
+.dc-card { opacity: 0.2; }
+.dc-row { opacity: 0.5; }
+
+/* ---------- 05 Entrepreneurship: the line climbs, the bars follow ---------- */
+.dc-bar { opacity: 0.45; transform-box: fill-box; transform-origin: center bottom; transition: scale 0.45s var(--ease); }
+.develop-card:hover .dc-bar--1 { scale: 1 1.14; }
+.develop-card:hover .dc-bar--2 { scale: 1 1.2; transition-delay: 0.07s; }
+.develop-card:hover .dc-bar--3 { scale: 1 1.26; transition-delay: 0.14s; }
+@keyframes dc-pop { 0%, 55% { opacity: 0; } 100% { opacity: 1; } }
+.develop-card:hover .dc-trend-head { animation: dc-pop 0.62s var(--ease) both; }
+.dc-coin-top { opacity: 0.55; }
+.dc-coin-body { opacity: 0.32; }
+.dc-coin { transition: translate 0.45s var(--ease); }
+.develop-card:hover .dc-coin { translate: 0 -7px; }
+
+/* ---------- 06 Practical Application: loose parts snap together ---------- */
+.dc-block { opacity: 0.5; transition: translate 0.45s var(--ease), opacity 0.45s var(--ease); }
+.dc-block--1 { translate: -7px 7px; }
+.dc-block--2 { translate: 7px 7px; }
+.dc-block--3 { translate: 0 -9px; }
+.develop-card:hover .dc-block { translate: 0 0; opacity: 0.85; }
+.develop-card:hover .dc-block--2 { transition-delay: 0.06s; }
+.develop-card:hover .dc-block--3 { transition-delay: 0.12s; }
+.dc-badge { opacity: 0.2; }
+
+/* Strokes that redraw themselves on hover. They stay drawn at rest, so a
+   card that nobody is pointing at still reads as finished. */
+.dc-check, .dc-tick, .dc-trend { stroke-dasharray: var(--dc-len); stroke-dashoffset: 0; }
+.dc-check { --dc-len: 20; }
+.dc-tick { --dc-len: 27; }
+.dc-trend { --dc-len: 76; }
+@keyframes dc-draw { from { stroke-dashoffset: var(--dc-len); } to { stroke-dashoffset: 0; } }
+.develop-card:hover .dc-check { animation: dc-draw 0.45s var(--ease) both; }
+.develop-card:hover .dc-check--2 { animation-delay: 0.16s; }
+.develop-card:hover .dc-tick { animation: dc-draw 0.5s var(--ease) both; }
+.develop-card:hover .dc-trend { animation: dc-draw 0.6s var(--ease) both; }
 .develop-card__num {
   position: absolute;
   left: 272px; top: 68px;
@@ -1015,22 +1124,26 @@ h1, h2, h3, h4, p, figure, figcaption, blockquote { margin: 0; }
    narrower than that leaves room for, anchor it to the right edge instead. */
 @container (max-width: 348px) {
   .develop-card__num { left: auto; right: 18px; }
-}
-@container (max-width: 250px) {
-  .develop-card__art .s3 { display: none; }
+  .dc-dot { display: none; }
 }
 
 .dc--1 { background: var(--blue-pale); color: var(--blue-ink); }
+.dc--1 { --dc-accent: #0040a1; }
 .dc--1 .develop-card__num { color: rgba(0, 64, 161, 0.35); }
 .dc--2 { background: var(--mint-1); color: var(--mint-ink); }
+.dc--2 { --dc-accent: #1b8a63; }
 .dc--2 .develop-card__num { color: rgba(27, 138, 99, 0.35); }
 .dc--3 { background: var(--peach-1); color: var(--peach-ink); }
+.dc--3 { --dc-accent: #d2601a; }
 .dc--3 .develop-card__num { color: rgba(210, 96, 26, 0.35); }
 .dc--4 { background: var(--yellow-1); color: var(--yellow-ink); }
+.dc--4 { --dc-accent: #b58e40; }
 .dc--4 .develop-card__num { color: rgba(181, 142, 64, 0.35); }
 .dc--5 { background: var(--lilac-1); color: var(--lilac-ink); }
+.dc--5 { --dc-accent: #6b5bc4; }
 .dc--5 .develop-card__num { color: rgba(107, 91, 196, 0.35); }
 .dc--6 { background: var(--blue-1); color: var(--blue-ink); }
+.dc--6 { --dc-accent: #2e62b2; }
 .dc--6 .develop-card__num { color: rgba(46, 98, 178, 0.35); }
 
 /* =========================================================================
