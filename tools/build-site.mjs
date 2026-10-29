@@ -17,7 +17,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { tracks, WEEKS } from './tracks.data.mjs';
 import { articles, TOPICS, fullArticle } from './articles.data.mjs';
-import { ticker, header, footer, head, esc, pad, PARTNERSHIPS_EMAIL, PAYSTACK } from './chrome.mjs';
+import { ticker, header, footer, head, esc, pad, numberWord, PARTNERSHIPS_EMAIL, PAYSTACK } from './chrome.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -62,6 +62,7 @@ function finalCta(base) {
 function trackPage(t) {
   const base = '../';
   const others = tracks.filter((o) => o.slug !== t.slug);
+  const otherTracksWord = numberWord(others.length);
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -214,7 +215,7 @@ ${header(base, 'programmes', t.slug)}
 ${t.careers && t.careers.length ? `
   <section class="track-section track-section--white">
     <div class="shell track-section__inner">
-      <h2 class="heading-track reveal"><span>Where this</span> <span class="accent">can lead</span></h2>
+      <h2 class="heading-track reveal"><span>Career</span> <span class="accent">Pathways</span></h2>
       <div class="careers reveal">
         ${t.careers.map((c) => `<span class="chip-career">${esc(c)}</span>`).join('\n        ')}
       </div>
@@ -232,7 +233,7 @@ ${t.careers && t.careers.length ? `
 
   <section class="track-section track-section--tint">
     <div class="shell track-section__inner">
-      <h2 class="heading-track reveal"><span>The other</span> <span class="accent">six tracks</span></h2>
+      <h2 class="heading-track reveal"><span>The other</span> <span class="accent">${otherTracksWord} tracks</span></h2>
       <div class="other-tracks">
         ${others.map((o) => `<a class="other-track reveal" href="${o.slug}.html">
           <span class="other-track__name">${esc(o.name)}</span>

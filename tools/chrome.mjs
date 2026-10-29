@@ -18,12 +18,19 @@ export const pad = (n) => String(n).padStart(2, '0');
    action and every status chip on the site are driven from here. */
 export const APPLICATIONS_OPEN = false;
 
+/* How many tracks there are, in words, so the ticker, the Programmes
+   dropdown and the footer cannot drift when a track is added. */
+const NUMBER_WORDS = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'];
+export const TRACK_COUNT = tracks.length;
+export const numberWord = (n) => NUMBER_WORDS[n] || String(n);
+export const TRACK_COUNT_WORD = numberWord(TRACK_COUNT);
+
 export const TICKER_ITEMS = [
   APPLICATIONS_OPEN ? 'COHORT 2 APPLICATIONS ARE OPEN' : 'APPLICATIONS ARE CURRENTLY CLOSED',
   `${WEEKS} WEEKS · BONNY ISLAND`,
   'NO COST TO SELECTED PARTICIPANTS',
   'MENTOR-LED · PROJECT-BASED',
-  'SEVEN TRACKS TO CHOOSE FROM',
+  `${TRACK_COUNT_WORD.toUpperCase()} TRACKS TO CHOOSE FROM`,
   'DELIVERED BY CEDARS PRODUCTIVITY CENTRE',
 ];
 
@@ -84,7 +91,7 @@ export function header(base = '', active = '', slug = '') {
           <img class="nav__chevron" src="${base}assets/svg/nav-chevron.svg" alt="" aria-hidden="true">
         </button>
         <div class="dropdown" id="programmes-menu" role="menu">
-          <span class="dropdown__label">SEVEN TRACKS</span>
+          <span class="dropdown__label">${TRACK_COUNT_WORD.toUpperCase()} TRACKS</span>
           ${trackLinks}
         </div>
       </div>
@@ -154,7 +161,7 @@ export function footer(base = '') {
         <span class="footer__label">PROGRAMME</span>
         <a href="${base}index.html#impact">Impact</a>
         <a href="${base}get-involved.html">Get Involved</a>
-        <a href="${base}index.html#tracks">All seven tracks</a>
+        <a href="${base}index.html#tracks">All ${TRACK_COUNT_WORD} tracks</a>
       </nav>
 
       <nav class="footer__col" aria-label="Leadership">

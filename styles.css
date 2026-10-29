@@ -902,6 +902,7 @@ h1, h2, h3, h4, p, figure, figcaption, blockquote { margin: 0; }
 .track-card__media--frontend img { object-position: center 46%; }
 .track-card__media--graphic img { object-position: center 45%; }
 .track-card__media--ai img { object-position: center 32%; }
+.track-card__media--social img { object-position: center 17%; }
 
 .track-card__body {
   flex: 1;
@@ -922,6 +923,7 @@ h1, h2, h3, h4, p, figure, figcaption, blockquote { margin: 0; }
 .tag--core-green { background: var(--mint-1); color: var(--mint-ink); }
 .tag--design { background: var(--peach-1); color: var(--peach-ink-strong); }
 .tag--core-blue { background: var(--blue-pale); color: var(--blue-6); }
+.tag--media { background: var(--lilac-1); color: var(--lilac-ink); }
 
 .track-card__body h3 {
   font-family: var(--font-alt);
