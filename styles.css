@@ -1009,13 +1009,10 @@ h1, h2, h3, h4, p, figure, figcaption, blockquote { margin: 0; }
 
 /* Shared furniture: the soft disc behind the drawing and the trailing dot. */
 .dc-halo { opacity: 0.16; }
-.dc-dot { opacity: 0.4; transition: scale 0.45s var(--ease), opacity 0.45s var(--ease); }
-.develop-card:hover .dc-dot { scale: 1.25; opacity: 0.6; }
-.dc-dot { transform-box: fill-box; transform-origin: center; }
 
 /* Anything drawn as a line shares one stroke treatment. */
-.dc-lens-ring, .dc-lens-handle, .dc-hand, .dc-check, .dc-tick,
-.dc-trend, .dc-trend-head, .dc-caret, .dc-clock-rim, .dc-arrow-line {
+.dc-lens-ring, .dc-lens-handle, .dc-hand,
+.dc-trend, .dc-trend-head, .dc-clock-rim {
   fill: none;
   stroke: var(--dc-accent);
   stroke-width: 3;
@@ -1028,15 +1025,11 @@ h1, h2, h3, h4, p, figure, figcaption, blockquote { margin: 0; }
 .dc-screen-bar { opacity: 0.4; }
 .dc-screen-dot { opacity: 0.75; }
 .dc-stand, .dc-base { opacity: 0.55; }
-.dc-chip { opacity: 0.2; }
-.dc-caret-line { opacity: 0.8; }
 .dc-line { transform-box: fill-box; transform-origin: left center; }
 @keyframes dc-type { from { scale: 0 1; } to { scale: 1 1; } }
 .develop-card:hover .dc-line { animation: dc-type 0.42s var(--ease) both; }
 .develop-card:hover .dc-line--2 { animation-delay: 0.1s; }
 .develop-card:hover .dc-line--3 { animation-delay: 0.2s; }
-@keyframes dc-blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.2; } }
-.develop-card:hover .dc-caret { animation: dc-blink 0.9s steps(1, end) infinite; }
 
 /* ---------- 02 Innovation: the lens travels to the real problem ---------- */
 .dc-seed { opacity: 0.4; }
@@ -1052,9 +1045,6 @@ h1, h2, h3, h4, p, figure, figcaption, blockquote { margin: 0; }
   transition: translate 0.52s var(--ease);
 }
 .develop-card:hover .dc-lens { translate: 0 0; }
-.dc-bulb { opacity: 0.45; transition: opacity 0.4s var(--ease) 0.2s; }
-.dc-bulb-base { opacity: 0.6; }
-.develop-card:hover .dc-bulb { opacity: 0.9; }
 
 /* ---------- 03 Leadership: one steps up, the others turn in ---------- */
 .dc-person { opacity: 0.55; transform-box: fill-box; transform-origin: center bottom; transition: translate 0.45s var(--ease), rotate 0.45s var(--ease); }
@@ -1064,7 +1054,6 @@ h1, h2, h3, h4, p, figure, figcaption, blockquote { margin: 0; }
 .develop-card:hover .dc-person--r { rotate: -7deg; }
 .dc-arrow { opacity: 0; translate: 0 9px; transition: opacity 0.4s var(--ease) 0.12s, translate 0.4s var(--ease) 0.12s; }
 .develop-card:hover .dc-arrow { opacity: 0.85; translate: 0 0; }
-.dc-ring { opacity: 0.2; }
 
 /* ---------- 04 Professional Readiness: clock runs, checklist ticks ---------- */
 .dc-clock-face { opacity: 0.22; }
@@ -1074,8 +1063,6 @@ h1, h2, h3, h4, p, figure, figcaption, blockquote { margin: 0; }
 @keyframes dc-sweep { to { rotate: 360deg; } }
 .develop-card:hover .dc-hand--m { animation: dc-sweep 1.6s linear infinite; }
 .develop-card:hover .dc-hand--h { animation: dc-sweep 9.6s linear infinite; }
-.dc-card { opacity: 0.2; }
-.dc-row { opacity: 0.5; }
 
 /* ---------- 05 Entrepreneurship: the line climbs, the bars follow ---------- */
 .dc-bar { opacity: 0.45; transform-box: fill-box; transform-origin: center bottom; transition: scale 0.45s var(--ease); }
@@ -1084,10 +1071,6 @@ h1, h2, h3, h4, p, figure, figcaption, blockquote { margin: 0; }
 .develop-card:hover .dc-bar--3 { scale: 1 1.26; transition-delay: 0.14s; }
 @keyframes dc-pop { 0%, 55% { opacity: 0; } 100% { opacity: 1; } }
 .develop-card:hover .dc-trend-head { animation: dc-pop 0.62s var(--ease) both; }
-.dc-coin-top { opacity: 0.55; }
-.dc-coin-body { opacity: 0.32; }
-.dc-coin { transition: translate 0.45s var(--ease); }
-.develop-card:hover .dc-coin { translate: 0 -7px; }
 
 /* ---------- 06 Practical Application: loose parts snap together ---------- */
 .dc-block { opacity: 0.5; transition: translate 0.45s var(--ease), opacity 0.45s var(--ease); }
@@ -1097,18 +1080,11 @@ h1, h2, h3, h4, p, figure, figcaption, blockquote { margin: 0; }
 .develop-card:hover .dc-block { translate: 0 0; opacity: 0.85; }
 .develop-card:hover .dc-block--2 { transition-delay: 0.06s; }
 .develop-card:hover .dc-block--3 { transition-delay: 0.12s; }
-.dc-badge { opacity: 0.2; }
 
 /* Strokes that redraw themselves on hover. They stay drawn at rest, so a
    card that nobody is pointing at still reads as finished. */
-.dc-check, .dc-tick, .dc-trend { stroke-dasharray: var(--dc-len); stroke-dashoffset: 0; }
-.dc-check { --dc-len: 20; }
-.dc-tick { --dc-len: 27; }
-.dc-trend { --dc-len: 76; }
+.dc-trend { --dc-len: 76; stroke-dasharray: var(--dc-len); stroke-dashoffset: 0; }
 @keyframes dc-draw { from { stroke-dashoffset: var(--dc-len); } to { stroke-dashoffset: 0; } }
-.develop-card:hover .dc-check { animation: dc-draw 0.45s var(--ease) both; }
-.develop-card:hover .dc-check--2 { animation-delay: 0.16s; }
-.develop-card:hover .dc-tick { animation: dc-draw 0.5s var(--ease) both; }
 .develop-card:hover .dc-trend { animation: dc-draw 0.6s var(--ease) both; }
 .develop-card__num {
   position: absolute;
@@ -1124,7 +1100,6 @@ h1, h2, h3, h4, p, figure, figcaption, blockquote { margin: 0; }
    narrower than that leaves room for, anchor it to the right edge instead. */
 @container (max-width: 348px) {
   .develop-card__num { left: auto; right: 18px; }
-  .dc-dot { display: none; }
 }
 
 .dc--1 { background: var(--blue-pale); color: var(--blue-ink); }
