@@ -1523,7 +1523,7 @@ h1, h2, h3, h4, p, figure, figcaption, blockquote { margin: 0; }
 }
 .testimonial {
   flex: 0 0 auto;
-  min-height: 320px;
+  min-height: 300px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1547,8 +1547,8 @@ h1, h2, h3, h4, p, figure, figcaption, blockquote { margin: 0; }
   flex-direction: column;
   gap: 14px;
   font-family: var(--font-alt);
-  font-size: 16px;
-  line-height: 1.6;
+  font-size: 15px;
+  line-height: 1.55;
 }
 .testimonial blockquote p { margin: 0; }
 
